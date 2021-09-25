@@ -63,15 +63,3 @@ float: left;
     font-family: 'Montserrat';
     font-size: 18px;
 }
-
-.intro_format{
-    width: auto;
-    height: 500px;
-    background-color: rgb(82, 82, 82);
-}
-
-.inner_intro{
-    width: auto;
-    height: 300px;
-    background-color: rgb(255, 0, 0);
-}

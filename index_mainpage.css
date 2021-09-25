@@ -1,0 +1,19 @@
+.intro_format{
+    width: auto;
+    height: 500px;
+    background-color: rgb(82, 82, 82);
+}
+
+.intro_format h1
+{
+    font-weight: 900;
+    margin-bottom: 30px;
+}
+
+.inner_intro{
+    margin:50px;
+    padding-left: 10px;
+    width: auto;
+    height: 300px;
+    background-color: rgb(255, 0, 0);
+}
