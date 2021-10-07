@@ -1,19 +1,10 @@
-.intro_format{
-    width: auto;
-    height: 500px;
+.mainpage{
     background-color: rgb(82, 82, 82);
+    padding: 60px 45px;
+    display: flex;
+    justify-content: center;
 }
 
-.intro_format h1
-{
-    font-weight: 900;
-    margin-bottom: 30px;
-}
-
-.inner_intro{
-    margin:50px;
-    padding-left: 10px;
-    width: auto;
-    height: 300px;
-    background-color: rgb(255, 0, 0);
+.inner-mainpage{
+    max-width: 600px;
 }

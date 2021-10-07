@@ -3,7 +3,7 @@ body{
 }
 
 .header{
-    width: 100%;
+    width: auto;
     height: 100px;
     background-color: #101010;
     text-decoration: none;
@@ -14,14 +14,12 @@ body{
 
 .logo_container{
     padding: 0;
-    margin: 0;
+    margin: 0; 
+    align-self: center;
 }
 
 .logo_container h1{
     color:white;
-    height: 100%;
-    display: table-cell;
-    vertical-align: middle;
     font-family: 'Montserrat';
     font-size: 50px;
     font-weight: 100;
@@ -37,9 +35,21 @@ body{
     list-style: none;
     display: flex;
     align-items: center;
+    font-size: 18px;
 }
 
 .nav a{
     text-decoration: none;
     color: #fff;
+    display: block;
+    transition: all 0.3s ease-out;
+}
+
+.nav a:hover{
+color: rgb(189, 189, 189);
+transform: rotate(366deg);
+}
+
+.nav li{
+    margin-left: 25px;
 }
