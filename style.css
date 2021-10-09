@@ -56,5 +56,9 @@ font-size: 22px;
 }
 
 
-
+.nav ion-icon{
+    display: block;
+    align-items: center;
+    color:#fff;
+}
 /*ionicons*/
