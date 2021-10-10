@@ -61,4 +61,20 @@ font-size: 22px;
     align-items: center;
     color:#fff;
 }
-/*ionicons*/
+
+.nav ion-icon:hover{
+    transition: 1s ease-in-out;
+    animation-name: sun;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+@keyframes sun{
+    50%, 80%{
+        transform: rotate(370deg);
+    }
+    100%{
+        transform: scale(1.3);
+    }
+}
