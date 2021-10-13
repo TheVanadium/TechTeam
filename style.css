@@ -41,8 +41,8 @@ body{
 .nav a{
     text-decoration: none;
     color: #fff;
-    display: block;
-    
+    display:block;
+    padding: 5px;
 }
 
 .nav a:hover{
@@ -50,6 +50,7 @@ body{
     color: rgb(189, 189, 189);
     transform: rotate(366deg);
     font-size: 22px;
+    padding: 5px;
 }
 
 .nav li{
@@ -68,22 +69,19 @@ body{
     animation-duration: 1s;
     animation-iteration-count: infinite;
     animation-direction: alternate;
+    animation-timing-function: ease-in-out;
 }
 
 @keyframes sun{
 
-    30%{
+    20%{
+        transform: rotate(0deg);
         color: #fff;
     }
 
-    60%{
+    70%{
         transform: rotate(370deg);
         color: #fff;
-    }
-    90%{
-        transform: scale(1.3);
-        color: #ffd900;
-        
     }
     100%
     {

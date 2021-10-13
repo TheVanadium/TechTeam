@@ -2,7 +2,6 @@ body
 {
     margin: 0;
     padding: 0;
-    font-family: sans-serif;
     background-image: url(https://www.gusd.net/cms/lib/CA01000648/Centricity/ModuleInstance/4704/large/Great%20To%20Be%20A%20Falcon%201.jpg);
     background-size: cover;
     background-position: center;
@@ -10,6 +9,7 @@ body
 
 .sign-up-form
 {
+    font-family: sans-serif;
     width: 300px;
     box-shadow: 0 0 3px 0 rgba(0,0,0,0.3);
     background: #fff;
