@@ -25,6 +25,7 @@
     position: relative;
     box-shadow: 0 0 20px 9px #ff61241f;
     border-radius: 30px;
+    display: flex;
 }
 
 .toggle-btn
@@ -54,8 +55,8 @@
 {
     border-radius: 20px;
     padding: 10px;
-    margin: 10px -10px;
-    width: 100%;
+    margin: 10px;
+    width: 80%;
     border: 1px solid #999;
     outline: none;
 }
@@ -63,7 +64,7 @@
 button
 {
     color: #fff;
-    width: 100%;
+    width: 80%;
     padding: 10px;
     border-radius: 20px;
     font-size: 15px;
@@ -99,10 +100,4 @@ hr
     background-color: #fff;
     width: 30px;
     margin: -19px auto 10px;
-}
-
-img
-{
-    width: 70px;
-    margin-top: -50px;
 }
