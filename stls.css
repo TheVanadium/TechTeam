@@ -16,6 +16,7 @@
     margin: 6% auto;
     text-align: center;
     position: relative;
+    overflow: hidden;
 }
 
 .button-box
@@ -84,20 +85,13 @@ button
     background-color: #21afde;
 }
 
-a
+#login
 {
-    text-decoration: none;
+    position: absolute;
 }
 
-hr
+#register
 {
-    margin-top: 20px;
-    width: 80%;
-}
-
-.or
-{
-    background-color: #fff;
-    width: 30px;
-    margin: -19px auto 10px;
+    position: absolute;
+    left: 450px;
 }
