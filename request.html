@@ -42,11 +42,45 @@
                 <select name = "roles" id = "roles">
                     <option value = "teacher"> Teacher </option>
                     <option value = "student"> Student</option>
-                </select> 
+                </select>
+                <input type = "button" value ="submit" class="roletype"> 
 
             </form>
-            <!-- place for script to open menus when either "teacher" or "student" is the selected role-->
-            <script>                
+            <!--faculty issues - add any extra needed information below-->
+            <form id="teacherlist">
+                <label for = 'roomnum'>Room number: </label>
+                <input type = 'text' id = 'roomnum' name = 'roomnum'>
+            </form>
+            <!--student issues - add any extra needed information below -->
+            <form id='studentlist'>
+                <a href = 'https://docs.google.com/forms/d/e/1FAIpQLSeMzDSOPxqWtIkaYbQ_JQMmM-73us6h5dsPITCmaor-RDWQPA/viewform'>Password change/recovery request</a>
+                <label for = 'semail'>Student email address:</label>
+                <input type ='text' id='semail'name='semail'>
+            </form>
+            <!--script to open menus when either "teacher" or "student" is the selected role-->
+            <script>
+            document.getElementById('teacherlist').style.display = 'none';
+            document.getElementById('studentlist').style.display = 'none';
+            const roleSubmit = document.querySelector('.roletype');
+            roleSubmit.addEventListener('click',checkUserType);
+            function checkUserType()
+            {
+                var teacheror = document.getElementById("roles");
+                var teacherval = teacheror.value;
+                console.log(teacherval);
+                const teacherlist = document.querySelector('.teacherlist');
+                if(teacherval == 'teacher')
+                {
+                    document.getElementById('studentlist').style.display = 'none';
+                    document.getElementById('teacherlist').style.display = "block"; 
+                }
+                if(teacherval == 'student')
+                {
+                    document.getElementById('teacherlist').style.display = 'none';
+                    document.getElementById('studentlist').style.display = 'block';
+                }
+            }
+            
             </script>
         </div>
             
