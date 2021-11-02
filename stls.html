@@ -23,7 +23,6 @@
         <ul class="nav">
             <li><a href="index.html">Home</a></li>
             <li><a href="request.html">Request</a></li>
-            <li><a href="task.html">Task</a></li>
             <li><a href="stls.html">STLs</a></li>
             <li><a href="learn.html">Learn</a></li>
             <li><a href="about.html">About</a></li>
@@ -41,12 +40,14 @@
             <button type="button" class="toggle-btn" onclick="register()">Sign up</button>
         </div>
         <form id="login" class="input-group">
-                <input type="email" class="input-box" placeholder="Your Email" required>
-                <input type="password" class="input-box" placeholder="Your Password" required>
+                <input type="text" class="input-box" placeholder="User Id" required>
+                <input type="password" class="input-box" placeholder="Password" required>
+                <br/>
                 <input type="checkbox" class="check-box"><span>Remember Password</span>
-                <button type ="buton" class="signup-btn">Sign in</button>
+                <button type ="buton" class="signup-btn"><a href= "task.html">Sign in</a></button>
         </form>
         <form id="register" class="input-group">
+                <input type="text" class="input-box" placeholder="Your Id"/>
                 <input type="email" class="input-box" placeholder="Your Email"/>
                 <input type="password" class="input-box" placeholder="Your Password"/>
                 <button type ="buton" class="signup-btn">Sign up</button>
@@ -61,14 +62,14 @@
     
     function register()
     {
-        x.style.left = "-400px";
+        x.style.left = "500px";
         y.style.left = "0px";
         z.style.left = "110px";
     }
     function login()
     {
         x.style.left = "0px";
-        y.style.left = "400px";
+        y.style.left = "-500px";
         z.style.left = "0px";
     }
 </script>
