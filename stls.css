@@ -28,12 +28,22 @@
 {
   0%
   {
-    background: linear-gradient(to right, #b603fc, #03fcc6);
+    background-color: #b603fc;
+  }
+  
+  25%
+  {
+    background-color: #03fcc6;
+  }
+  
+  50%
+  {
+    background-color: #fc6703;
   }
   
   100%
   {
-    background: linear-gradient(to right, #fc6703, #03fc90);
+    background-color: #03fc90;
   }
 }
 
