@@ -15,7 +15,26 @@
   margin: 6% auto;
   text-align: center;
   position: relative;
+  animation-name: background;
+  animation-fill-mode: both;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  animation-duration: 3s;
+  animation-direction: alternate;
   /* overflow: hidden; */
+}
+
+@keyframes background
+{
+  0%
+  {
+    background: linear-gradient(to right, #b603fc, #03fcc6);
+  }
+  
+  100%
+  {
+    background: linear-gradient(to right, #fc6703, #03fc90);
+  }
 }
 
 .input-group{
