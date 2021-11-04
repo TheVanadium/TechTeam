@@ -36,15 +36,15 @@
     <div class="sign-up-form">
         <div class="button-box">
             <div id="btn"></div>
-            <button type="button" class="toggle-btn" onclick="login()">Log in</button>
-            <button type="button" class="toggle-btn" onclick="register()">Sign up</button>
+            <button type="button" class="toggle-btn" onclick="loginpage()">Log in</button>
+            <button type="button" class="toggle-btn" onclick="registerpage()">Sign up</button>
         </div>
         <form id="login" class="input-group">
                 <input type="text" class="input-box" placeholder="User Id" required>
                 <input type="password" class="input-box" placeholder="Password" required>
                 <br/>
                 <input type="checkbox" class="check-box"><span>Remember Password</span>
-                <button type ="buton" class="signup-btn"><a href= "task.html">Sign in</a></button>
+                <button type ="buton" class="signup-btn" onclick="login"><a href="task.html">Sign in</a></button>
         </form>
         <form id="register" class="input-group">
                 <input type="text" class="input-box" placeholder="Your Id"/>
@@ -54,23 +54,29 @@
         </form>
     </div>
 </div>
-
 <script>
     var x = document.getElementById("login");
     var y = document.getElementById("register");
     var z = document.getElementById("btn");
     
-    function register()
+    x.style.left = "0px";
+    
+    function registerpage()
     {
         x.style.left = "500px";
         y.style.left = "0px";
         z.style.left = "110px";
     }
-    function login()
+    function loginpage()
     {
         x.style.left = "0px";
         y.style.left = "-500px";
         z.style.left = "0px";
+    }
+    
+    function login()
+    {
+        
     }
 </script>
 
