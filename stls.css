@@ -8,20 +8,21 @@
 }
 
 .sign-up-form {
-  width: 380px;
-  height: 480px;
+  width: 400px;
+  height: 500px;
   background: #fff;
   padding: 5px 0;
   margin: 6% auto;
   text-align: center;
   position: relative;
-  animation-name: background;
+  border-radius: 10px;
+  /*animation-name: background;*/
   animation-fill-mode: both;
   animation-iteration-count: infinite;
   animation-timing-function: ease-in-out;
   animation-duration: 3s;
   animation-direction: alternate;
-  /* overflow: hidden; */
+   overflow: hidden; 
 }
 
 @keyframes background
