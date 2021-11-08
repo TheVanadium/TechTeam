@@ -3,27 +3,24 @@ body{
     background-color: black;
 }
 
-*{
-    box-sizing: border-box;
-}
-
 .container{
     max-width: 1140px;
     background-color: #ffffff;
-    height: 700px;
+    height: 100%;
     margin: 20px auto;
     padding: 20px;
 }
 
-h1{
+.container h1{
     font-size: 30px;
     margin: 0;
 }
 
-nav{
-    float: left;
-    width: 100%;
-    background-color: gray;
-    text-align: center;
-    padding: 30px 15px;
+.cat{
+    margin: 50px 0;
+    padding: 20px;
+    width: 80%;
+    height: 200px;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 1);
+    border-radius: 25px;
 }
