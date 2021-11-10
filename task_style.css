@@ -9,18 +9,41 @@ body{
     height: 100%;
     margin: 20px auto;
     padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120%, 1fr));
+    gap: 20px;
+}
+
+.img{
+    z-index: -1;
+    position: absolute;
+}
+
+.display-img{
+    width: 100% auto;
+    height: 50%;
+    display: block
+}
+
+.text-holder{
+    width: 100%;
+    display: block;
 }
 
 .container h1{
     font-size: 30px;
     margin: 0;
+    z-index: 1;
+    position: absolute;
 }
 
 .cat{
     margin: 50px 0;
     padding: 20px;
     width: 80%;
-    height: 200px;
+    height: auto;
     box-shadow: 0 0 3px rgba(0, 0, 0, 1);
     border-radius: 25px;
+    position: relative;
+    overflow: visible;
 }
