@@ -8,17 +8,47 @@
 }
 
 .sign-up-form {
-  width: 380px;
-  height: 480px;
+  width: 400px;
+  height: 500px;
   background: #fff;
-  padding: 5px;
+  padding: 5px 0;
   margin: 6% auto;
   text-align: center;
   position: relative;
-  /* overflow: hidden; */
+  border-radius: 10px;
+  /*animation-name: background;*/
+  animation-fill-mode: both;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  animation-duration: 3s;
+  animation-direction: alternate;
+  overflow: hidden; 
 }
 
-.input-group {
+@keyframes background
+{
+  0%
+  {
+    background-color: #b603fc;
+  }
+  
+  25%
+  {
+    background-color: #03fcc6;
+  }
+  
+  50%
+  {
+    background-color: #fc6703;
+  }
+  
+  100%
+  {
+    background-color: #03fc90;
+  }
+}
+
+.input-group{
   top: 180px;
   position: absolute;
   width: 400px;
@@ -59,10 +89,24 @@
 .input-box {
   border-radius: 20px;
   padding: 10px;
-  margin: 10px;
+  margin: 10px 0;
   width: 80%;
   border: 1px solid #999;
   outline: none;
+  background: transparent;
+}
+
+.check-box
+{
+    margin: 30px 10px 30px 0;
+}
+
+.span
+{
+    color: #777;
+    font-size: 12px;
+    bottom: 68px;
+    position: absolute;
 }
 
 button {
@@ -81,15 +125,23 @@ button {
   background-color: #1c8adb;
 }
 
+.signup-btn a
+{
+    color: white;
+    text-decoration: none;
+}
+
 .email-btn {
   background-color: #21afde;
 }
 
 #login {
+    transition: .5s;
   position: absolute;
 }
 
 #register {
+    transition: .5s;
   position: absolute;
-  left: 450px;
+  left: -450px;
 }

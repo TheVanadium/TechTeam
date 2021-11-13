@@ -10,18 +10,38 @@ body
 .sign-up-form
 {
     font-family: sans-serif;
-    width: 300px;
+    width: 500px;
     box-shadow: 0 0 3px 0 rgba(0,0,0,0.3);
     background: #fff;
     padding: 20px;
     margin: 8% auto 0;
     text-align: center; 
 }
+#otherT
+{
+    display: block;
+    margin : 0 auto;
+}
+#otherS
+{
+    display: block;
+    margin : 0 auto;
+}
+input[type=text] 
+{
+    border: 2px solid black;
+    border-radius: 2px;
+}
+input[type=text]:focus 
+{
+    background-color: lightblue;
+}
 
 .sign-up-form h1
 {
     color: rgb(0, 110, 255);
     margin-bottom: 30px;
+    
 }
 
 .input-box
@@ -52,6 +72,11 @@ button
     background-color: #1c8adb;
 }
 
+.signup_submit
+{
+    background-color: #1c8adb;
+    border-radius: 8px;
+}
 .email-btn
 {
     background-color: #21afde;
@@ -80,3 +105,5 @@ img
     width: 70px;
     margin-top: -50px;
 }
+
+
