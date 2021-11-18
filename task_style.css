@@ -7,27 +7,51 @@ body{
     max-width: 90%;
     background-color: #ffffff;
     height: auto;
-    margin: 20px auto;
+    margin: 50px auto;
     padding: 20px;
+    position: relative;
+    
+}
+
+container > div{
+    height: auto;
+    width: auto;
+}
+
+.c1{
+    z-index: 1;
+    position: absolute;
+}
+
+.c2{
+    z-index: 1;
+}
+
+.container > div > div{
+    height: 210px;
+    width: 100%;
+    background-size: cover;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 1);
+    border-radius: 25px;
     display: grid;
     grid-template-columns: repeat(1, 1fr);
     gap: 20px;
 }
 
-.container > div{
-    height: 210px;
-    /*background-color: #725994;*/
-    background-size: cover;
-    margin: 50px 0;
-    padding: 20px;
-    width: 80%;
-    height: 300px;
-    box-shadow: 0 0 3px rgba(0, 0, 0, 1);
-    border-radius: 25px;
-    display: inline-flex;
-    text-align: center;
+.background1{
+    z-index: -1;
+    background: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQB-ZVe9zxh-1iDTUT-2I_42O4Ou4cQd0zY_Q&usqp=CAU");
+    position: absolute;
+    opacity: 50%;
 }
 
-.c1{
-    background: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwputApHFr07meuiyO9AsQYbqnc2cunoYOaQ&usqp=CAU");
-}
+/*span {*/
+/*  background-color: aqua;*/
+/*}*/
+
+/*div > span {*/
+/*  background-color: DodgerBlue;*/
+/*}*/
+/*div > span > span{*/
+/*    background-color: red;*/
+/*}*/
