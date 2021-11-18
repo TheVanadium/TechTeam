@@ -17,21 +17,7 @@ body
     margin: 8% auto 0;
     text-align: center; 
 }
-#otherT
-{
-    display: block;
-    margin : 0 auto;
-}
-#otherS
-{
-    display: block;
-    margin : 0 auto;
-}
-input[type=text] 
-{
-    border: 2px solid black;
-    border-radius: 2px;
-}
+
 input[type=text]:focus 
 {
     background-color: lightblue;
@@ -49,9 +35,10 @@ input[type=text]:focus
     border-radius: 20px;
     padding: 10px;
     margin: 10px 0;
-    width: 100%;
+    width: 80%;
     border: 1px solid #999;
     outline: none;
+    background: transparent;
 }
 
 button
