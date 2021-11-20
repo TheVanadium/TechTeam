@@ -4,46 +4,54 @@ body{
 }
 
 .container{
-    max-width: 1140px;
+    max-width: 90%;
     background-color: #ffffff;
-    height: 100%;
-    margin: 20px auto;
+    height: auto;
+    margin: 50px auto;
     padding: 20px;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(120%, 1fr));
-    gap: 20px;
+    position: relative;
+    
 }
 
-.img{
-    z-index: -1;
-    position: absolute;
+container > div{
+    height: auto;
+    width: auto;
 }
 
-.display-img{
-    width: 100% auto;
-    height: 50%;
-    display: block
-}
-
-.text-holder{
-    width: 100%;
-    display: block;
-}
-
-.container h1{
-    font-size: 30px;
-    margin: 0;
+.c1{
     z-index: 1;
     position: absolute;
 }
 
-.cat{
-    margin: 50px 0;
-    padding: 20px;
-    width: 80%;
-    height: auto;
+.c2{
+    z-index: 1;
+}
+
+.container > div > div{
+    height: 210px;
+    width: 100%;
+    background-size: cover;
     box-shadow: 0 0 3px rgba(0, 0, 0, 1);
     border-radius: 25px;
-    position: relative;
-    overflow: visible;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 20px;
 }
+
+.background1{
+    z-index: -1;
+    background: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQB-ZVe9zxh-1iDTUT-2I_42O4Ou4cQd0zY_Q&usqp=CAU");
+    position: absolute;
+    opacity: 50%;
+}
+
+/*span {*/
+/*  background-color: aqua;*/
+/*}*/
+
+/*div > span {*/
+/*  background-color: DodgerBlue;*/
+/*}*/
+/*div > span > span{*/
+/*    background-color: red;*/
+/*}*/
