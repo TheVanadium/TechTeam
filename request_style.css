@@ -40,6 +40,14 @@ input[type=text]:focus
     outline: none;
     background: transparent;
 }
+#otherS
+{
+    margin: auto;
+}
+#otherT
+{
+    margin: auto;
+}
 
 button
 {
