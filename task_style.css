@@ -4,6 +4,7 @@ body {
 }
 
 .container {
+    position: relative;
   max-width: 100%;
   background-color: #ffffff;
   height: auto;
@@ -15,20 +16,32 @@ body {
   gap: 20px;
 }
 
+.content{
+    position: relative;
+    font-size: 1.5rem;
+    transform: translateY(-40px);
+}
+
+.counter{
+    position: relative;
+    object-position: top right;
+}
+
 #cats {
-  z-index: 1;
   padding: 20px;
   height: 210px;
   max-width: 97%;
-  background-size: cover;
   box-shadow: 0 0 3px rgba(0, 0, 0, 1);
   border-radius: 25px;
 }
 
-.background1 {
+#background {
+    position: absolute;
   width: auto;
   height: 100%;
-  z-index: -1;
-  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQB-ZVe9zxh-1iDTUT-2I_42O4Ou4cQd0zY_Q&usqp=CAU");
-  opacity: 50%;
+  opacity: 40%;
+}
+
+#bimg{
+    max-width: 225px;
 }
