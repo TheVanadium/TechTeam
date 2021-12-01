@@ -10,7 +10,6 @@ body {
   height: auto;
   margin: 50px auto;
   padding: 30px;
-  position: relative;
   display: grid;
   grid-template-columns: repeat(1, 1fr);
   gap: 20px;
@@ -20,11 +19,24 @@ body {
     position: relative;
     font-size: 1.5rem;
     transform: translateY(-40px);
+    display: flex;
 }
 
 .counter{
-    position: relative;
-    object-position: top right;
+    position: absolute;
+    right: 100px;
+}
+
+.c1{
+    background-color: #101010dd;
+}
+
+.c2{
+    background-color: #0388fcdd;
+}
+
+.c3{
+    background-color: #fc3d03dd;
 }
 
 #cats {
