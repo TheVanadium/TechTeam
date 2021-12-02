@@ -12,7 +12,7 @@ body {
   padding: 30px;
   display: grid;
   grid-template-columns: repeat(1, 1fr);
-  gap: 20px;
+  gap: 40px;
 }
 
 .content{
@@ -37,6 +37,37 @@ body {
 
 .c3{
     background-color: #fc3d03dd;
+}
+
+.tasks{
+    position: absolute;
+    width: 62%;
+    height: 20%;
+    object-fit: fill;
+    overflow: auto;
+    top: 10%;
+    right: 15%;
+}
+
+.tasks li{
+    list-style: none;
+    height: 60px;
+    line-height: 55px;
+    position: relative;
+    background-color: #f2f2f2;
+    border-radius: 5px;
+    margin-bottom: 8px;
+    padding: 0 15px;
+    font-size: 2rem;
+}
+
+#level{
+    color: red;
+}
+
+#delete{
+    position: absolute;
+    right: 0px;
 }
 
 #cats {
