@@ -52,11 +52,25 @@ body::-webkit-scrollbar-thumb:hover {
     font-size: 1.5rem;
     transform: translateY(-40px);
     display: flex;
+    justify-content: space-between;
+    padding: 10px;
 }
 
-.counter {
-    position: absolute;
-    right: 100px;
+.content input{
+    position:absolute;
+    font-size: 2rem;
+    width: 700px;
+    height: 60px;
+    left: 25%;
+    top: 20%;
+}
+
+.content button{
+    position:absolute;
+    width: 70px;
+    height: 70px;
+    top: 20%;
+    left: 75%;
 }
 
 .c1 {
