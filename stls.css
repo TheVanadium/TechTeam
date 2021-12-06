@@ -1,108 +1,101 @@
 .hero {
-  height: 100%;
-  width: 100%;
-  background-image: url(https://www.gusd.net/cms/lib/CA01000648/Centricity/ModuleInstance/4704/large/Great%20To%20Be%20A%20Falcon%201.jpg);
-  background-size: cover;
-  background-position: center;
-  position: absolute;
+    height: 100%;
+    width: 100%;
+    background-image: url(https://www.gusd.net/cms/lib/CA01000648/Centricity/ModuleInstance/4704/large/Great%20To%20Be%20A%20Falcon%201.jpg);
+    background-size: cover;
+    background-position: center;
+    position: absolute;
 }
 
 .sign-up-form {
-  width: 400px;
-  height: 500px;
-  background: #fff;
-  padding: 5px 0;
-  margin: 6% auto;
-  text-align: center;
-  position: relative;
-  border-radius: 10px;
-  /*animation-name: background;*/
-  animation-fill-mode: both;
-  animation-iteration-count: infinite;
-  animation-timing-function: ease-in-out;
-  animation-duration: 3s;
-  animation-direction: alternate;
-  overflow: hidden; 
+    width: 400px;
+    height: 500px;
+    background: #fff;
+    padding: 5px 0;
+    margin: 6% auto;
+    text-align: center;
+    position: relative;
+    border-radius: 10px;
+    /*animation-name: background;*/
+    animation-fill-mode: both;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    animation-duration: 3s;
+    animation-direction: alternate;
+    overflow: hidden;
 }
 
-@keyframes background
-{
-  0%
-  {
-    background-color: #b603fc;
-  }
-  
-  25%
-  {
-    background-color: #03fcc6;
-  }
-  
-  50%
-  {
-    background-color: #fc6703;
-  }
-  
-  100%
-  {
-    background-color: #03fc90;
-  }
+@keyframes background {
+    0% {
+        background-color: #b603fc;
+    }
+
+    25% {
+        background-color: #03fcc6;
+    }
+
+    50% {
+        background-color: #fc6703;
+    }
+
+    100% {
+        background-color: #03fc90;
+    }
 }
 
-.input-group{
-  top: 180px;
-  position: absolute;
-  width: 400px;
-  transition: 0.5s;
+.input-group {
+    top: 180px;
+    position: absolute;
+    width: 400px;
+    transition: 0.5s;
 }
 
 .button-box {
-  width: 220px;
-  margin: 35px auto;
-  position: relative;
-  box-shadow: 0 0 20px 9px #ff61241f;
-  border-radius: 30px;
-  display: flex;
+    width: 220px;
+    margin: 35px auto;
+    position: relative;
+    box-shadow: 0 0 20px 9px #ff61241f;
+    border-radius: 30px;
+    display: flex;
 }
 
 .toggle-btn {
-  color: black;
-  padding: 10px 32px;
-  cursor: pointer;
-  background: transparent;
-  border: 0;
-  outline: none;
-  position: relative;
-  width: auto;
+    color: black;
+    padding: 10px 32px;
+    cursor: pointer;
+    background: transparent;
+    border: 0;
+    outline: none;
+    position: relative;
+    width: auto;
 }
 
 #btn {
-  top: 0;
-  left: 0;
-  position: absolute;
-  width: 110px;
-  height: 100%;
-  background: linear-gradient(to right, #ff105f, #ffad06);
-  border-radius: 30px;
-  transition: 0.5s;
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 110px;
+    height: 100%;
+    background: linear-gradient(to right, #00f7ff, #7a06ff);
+    border-radius: 30px;
+    transition: 0.5s;
 }
 
 .input-box {
-  border-radius: 20px;
-  padding: 10px;
-  margin: 10px 0;
-  width: 80%;
-  border: 1px solid #999;
-  outline: none;
-  background: transparent;
+    border-radius: 20px;
+    padding: 10px;
+    margin: 10px 0;
+    width: 80%;
+    border: 1px solid #999;
+    outline: none;
+    background: transparent;
 }
 
-.check-box
-{
+.check-box {
     margin: 30px 10px 30px 0;
 }
 
-.span
-{
+.span {
     color: #777;
     font-size: 12px;
     bottom: 68px;
@@ -110,38 +103,37 @@
 }
 
 button {
-  color: #fff;
-  width: 80%;
-  padding: 10px;
-  border-radius: 20px;
-  font-size: 15px;
-  margin: 10px 0;
-  border: none;
-  outline: none;
-  cursor: pointer;
+    color: #fff;
+    width: 80%;
+    padding: 10px;
+    border-radius: 20px;
+    font-size: 15px;
+    margin: 10px 0;
+    border: none;
+    outline: none;
+    cursor: pointer;
 }
 
 .signup-btn {
-  background-color: #1c8adb;
+    background-color: #1c8adb;
 }
 
-.signup-btn a
-{
+.signup-btn a {
     color: white;
     text-decoration: none;
 }
 
 .email-btn {
-  background-color: #21afde;
+    background-color: #21afde;
 }
 
 #login {
-    transition: .5s;
-  position: absolute;
+    transition: 0.5s;
+    position: absolute;
 }
 
 #register {
-    transition: .5s;
-  position: absolute;
-  left: -450px;
+    transition: 0.5s;
+    position: absolute;
+    left: -450px;
 }

@@ -1,90 +1,131 @@
 body {
-  margin: 0;
-  background-color: black;
+    background-color: #171717;
+}
+
+body::-webkit-scrollbar {
+    width: 0.6em;
+}
+
+body::-webkit-scrollbar-track {
+    margin-block-end: 5px;
+}
+
+body::-webkit-scrollbar-thumb {
+    background: #424242;
+    border-radius: 100px;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+    background: #aaaaaa;
+}
+
+.tasks::-webkit-scrollbar {
+    width: 0.6em;
+}
+
+.tasks::-webkit-scrollbar-track {
+    margin-block-end: 5px;
+}
+
+.tasks::-webkit-scrollbar-thumb {
+    background: #dddddd;
+    border-radius: 100px;
+}
+
+.tasks::-webkit-scrollbar-thumb:hover {
+    background: #aaaaaa;
 }
 
 .container {
     position: relative;
-  max-width: 100%;
-  background-color: #ffffff;
-  height: auto;
-  margin: 50px auto;
-  padding: 30px;
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  gap: 40px;
+    max-width: 100%;
+    background-color: #171717;
+    height: auto;
+    padding: 30px;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 40px;
 }
 
-.content{
+.content {
     position: relative;
     font-size: 1.5rem;
     transform: translateY(-40px);
     display: flex;
 }
 
-.counter{
+.counter {
     position: absolute;
     right: 100px;
 }
 
-.c1{
-    background-color: #101010dd;
+.c1 {
+    background-color: #474747aa;
 }
 
-.c2{
-    background-color: #0388fcdd;
+.c2 {
+    background-color: #0388fcaa;
 }
 
-.c3{
-    background-color: #fc3d03dd;
+.c3 {
+    background-color: #fc3d03aa;
 }
 
-.tasks{
+.tasks {
     position: absolute;
     width: 62%;
-    height: 20%;
+    height: 70%;
     object-fit: fill;
     overflow: auto;
-    top: 10%;
+    top: 25%;
     right: 15%;
 }
 
-.tasks li{
+.tasks li {
     list-style: none;
     height: 60px;
     line-height: 55px;
     position: relative;
-    background-color: #f2f2f2;
+    background-color: #8f8f8f;
     border-radius: 5px;
     margin-bottom: 8px;
     padding: 0 15px;
     font-size: 2rem;
+    overflow: hidden;
 }
 
-#level{
+.tasks li:hover #delete {
+    right: 0;
+}
+
+#level {
     color: red;
 }
 
-#delete{
+#delete {
     position: absolute;
-    right: 0px;
+    right: -60px;
+    top: 0px;
+    background-color: rgb(216, 0, 0);
+    color: #ffffff;
+    font-size: 60px;
+    border-radius: 0 3px 3px 0;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
 }
 
 #cats {
-  padding: 20px;
-  height: 210px;
-  max-width: 97%;
-  box-shadow: 0 0 3px rgba(0, 0, 0, 1);
-  border-radius: 25px;
+    padding: 20px;
+    height: 300px;
+    max-width: 97%;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 1);
+    border-radius: 25px;
+    position: relative;
 }
 
 #background {
     position: absolute;
-  width: auto;
-  height: 100%;
-  opacity: 40%;
-}
-
-#bimg{
-    max-width: 225px;
+    font-size: 300px;
+    color: rgb(255, 255, 255);
+    opacity: 50%;
 }
