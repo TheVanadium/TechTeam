@@ -56,14 +56,14 @@ body::-webkit-scrollbar-thumb:hover {
     padding: 10px;
 }
 
-.inputfield{
+.inputfield {
     display: flex;
     height: 60px;
     width: 100%;
     margin: 20px 10%;
 }
 
-.inputfield input{
+.inputfield input {
     outline: none;
     font-size: 2rem;
     width: 84%;
@@ -73,25 +73,25 @@ body::-webkit-scrollbar-thumb:hover {
     padding-left: 15px;
 }
 
-.inputfield button{
+.inputfield button {
     width: 80px;
     height: 106%;
     border: none;
     outline: none;
-    background: #8E49E8;
+    background: #8e49e8;
     color: #fff;
     font-size: 60px;
     cursor: pointer;
     border-radius: 3px;
     margin-left: 5px;
-    align-item: center;
+    align-items: center;
     opacity: 0.6;
-    pointer-event: none;
+    pointer-events: none;
 }
 
-.inputfield button.active{
+.inputfield button.active {
     opacity: 1;
-    pointer-event: auto;
+    pointer-events: auto;
 }
 
 .c1 {
