@@ -60,13 +60,13 @@ body::-webkit-scrollbar-thumb:hover {
     display: flex;
     height: 60px;
     width: 100%;
-    margin: 20px 10%;
+    margin: 20px 11.5%;
 }
 
 .inputfield input {
     outline: none;
     font-size: 2rem;
-    width: 84%;
+    width: 87%;
     height: 100%;
     border: 1px solid #ccc;
     border-radius: 3px;
