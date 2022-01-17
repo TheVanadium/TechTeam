@@ -1,12 +1,9 @@
-.mainpage {
+body {
     background-color: #787586;
-    padding: 60px 45px;
-    display: flex;
-    justify-content: center;
 }
 
-.inner-mainpage {
-    max-width: 100%;
+.inner-mainpage{
+    padding: 20px;
 }
 
 .inner-mainpage h1 {
@@ -21,7 +18,7 @@
     /*line-height: 1.5;*/
 }
 
-.inner-mainpage span{
+.inner-mainpage span {
     font-size: 5rem;
     animation: arrows 1s infinite alternate-reverse;
     background: linear-gradient(90deg, black, red, gold);
@@ -30,12 +27,12 @@
     -webkit-background-clip: text;
 }
 
-@keyframes arrows{
+@keyframes arrows {
     0% {
         background-position: 0%;
     }
-    
-    100%{
+
+    100% {
         background-position: 400%;
     }
 }
@@ -49,4 +46,5 @@
     font-size: 1.2rem;
     display: inline-block;
     font-weight: bolder;
+    font-family: 'Montserrat', sans-serif;
 }
