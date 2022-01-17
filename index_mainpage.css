@@ -6,7 +6,7 @@
 }
 
 .inner-mainpage {
-    max-width: 800px;
+    max-width: 100%;
 }
 
 .inner-mainpage h1 {
@@ -15,9 +15,29 @@
     margin: 0;
 }
 
-.inner-mainpage p {
-    font-size: 1.2rem;
-    line-height: 1.5;
+.inner-mainpage h2 {
+    font-size: 1.5rem;
+    font-weight: normal;
+    /*line-height: 1.5;*/
+}
+
+.inner-mainpage span{
+    font-size: 5rem;
+    animation: arrows 1s infinite alternate-reverse;
+    background: linear-gradient(90deg, black, red, gold);
+    background-size: 400%;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+}
+
+@keyframes arrows{
+    0% {
+        background-position: 0%;
+    }
+    
+    100%{
+        background-position: 400%;
+    }
 }
 
 .button {
@@ -28,4 +48,5 @@
     border-radius: 8px;
     font-size: 1.2rem;
     display: inline-block;
+    font-weight: bolder;
 }

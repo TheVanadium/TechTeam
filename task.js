@@ -34,8 +34,16 @@ function showTasks(){
         listArr = JSON.parse(getLocalStorage);
     }
     let newLiTag = '';
-    listArr.array.forEach(element => {
-        newLiTag = `<li> ${element} <span id=level>emergcey level</span><ion-icon name="trash-outline" id="delete"></ion-icon></li>`;
+    listArr.array.forEach((element, index) => {
+        newLiTag += `<li> ${element} <span onclick="deleteTask(${index})";><ion-icon name="trash-outline" id="delete"></ion-icon><li>`;
     });
     todoList.innerHTML = newLiTag; //adding new li tag inside ul tag
+}
+
+function deleteTask(){
+    let getLocalStorage = localStorage.getItem("New Todo");
+    listArr = JSON.parse(getLocalStorage);
+    listArr.splice(index,1);
+    localStorage.setItem("New Todo", JSON.stringify(listArr));
+    showTasks();
 }
