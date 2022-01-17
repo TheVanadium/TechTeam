@@ -1,9 +1,9 @@
 //getting all required elements
-const inputBox = document.querySelector(".inputfield input");
-const addBtn = document.querySelector(".inputfield button");
-const todoList = document.querySelector(".tasks");
+const inputBox = document.querySelector('.inputfield input');
+const addBtn = document.querySelector('.inputfield button');
+const todoList = document.querySelector('.tasks');
 
-inputBox.onkeyup = ()=>{
+inputBox.onkeyup = () =>{
     let userData = inputBox.value; //getting user entered value
     if(userData.trim() != 0){ //if user values aren't only space
         addBtn.classList.add("active"); //active the add button
@@ -12,7 +12,7 @@ inputBox.onkeyup = ()=>{
     }
 
     //if user click on the add button
-    addBtn.onclick = ()=>{
+    addBtn.onclick = () =>{
         let userData = inputBox.value; //getting user entered value
         let getLocalStorage = localStorage.getItem("New Todo"); //getting localstorage
         if(getLocalStorage == null){ //if localStorage is null
