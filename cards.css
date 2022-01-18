@@ -1,14 +1,22 @@
 .cards{
+    padding-top: 20px;
     margin: 0 auto;
     max-width: 1000px;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(225px, 1fr));
     gap: 20px;
     font-family: sans-serif;
+    
+    @media (min-width: 48px)
+    {
+        grid-colum: auto;
+        grid-row: span 2;
+        align-self:center;
+    }
 }
 
 .card{
-    box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.4);
 }
 
 .card__image{
@@ -45,6 +53,14 @@
 .card__info i{
     font-size: 0.9em;
     margin-right: 8px;
+}
+
+.card__info button{
+    text-decoration: none;
+    font-size: 0.7rem;
+    border: none;
+    color: #3b3b3b;
+    cursor: pointer;
 }
 
 .card__link{
