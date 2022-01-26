@@ -35,7 +35,8 @@ function showTasks(){
     }
     let newLiTag = '';
     listArr.array.forEach((element, index) => {
-        newLiTag += `<li> ${element} <span onclick="deleteTask(${index})";><ion-icon name="trash-outline" id="delete"></ion-icon><li>`;
+        // newLiTag = `<li> $({)element).value <span onclick="deleteTask(${index})";><ion-icon name="trash-outline" id="delete"></ion-icon><li>`;
+        newLiTag = inputBox.value;
     });
     todoList.innerHTML = newLiTag; //adding new li tag inside ul tag
 }
