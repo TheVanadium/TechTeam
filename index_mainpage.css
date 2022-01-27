@@ -23,8 +23,8 @@
 
 .inner-mainpage span{
     font-size: 5rem;
-    animation: arrows 2s infinite;
-    background: linear-gradient(black, white, black);
+    animation: arrows 2s infinite ease-out;
+    background: linear-gradient(-30deg, black 85%, white, black 95%);
     background-size: 100% 200%;
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
@@ -32,11 +32,11 @@
 
 @keyframes arrows{
     0% {
-        background-position: 0% 0%;
+        background-position: 0% 200%;
     }
     
-    100%{
-        background-position: 0% 200%;
+    100% {
+        background-position: 0% 0%;
     }
 }
 
