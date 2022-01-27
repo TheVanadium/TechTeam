@@ -6,13 +6,6 @@
     grid-template-columns: repeat(auto-fill, minmax(225px, 1fr));
     gap: 20px;
     font-family: sans-serif;
-    
-    @media (min-width: 48px)
-    {
-        grid-colum: auto;
-        grid-row: span 2;
-        align-self:center;
-    }
 }
 
 .card{
