@@ -1,9 +1,12 @@
-body {
-    background-color: #787586;
+.mainpage {
+    background-color: #555555;
+    padding: 60px 45px;
+    display: flex;
+    justify-content: center;
 }
 
-.inner-mainpage{
-    padding: 20px;
+.inner-mainpage {
+    max-width: 100%;
 }
 
 .inner-mainpage h1 {
@@ -18,22 +21,22 @@ body {
     /*line-height: 1.5;*/
 }
 
-.inner-mainpage span {
+.inner-mainpage span{
     font-size: 5rem;
-    animation: arrows 1s infinite alternate-reverse;
-    background: linear-gradient(90deg, black, red, gold);
-    background-size: 400%;
+    animation: arrows 2s infinite ease-out;
+    background: linear-gradient(-30deg, black 85%, white, black 95%);
+    background-size: 100% 200%;
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
 }
 
-@keyframes arrows {
+@keyframes arrows{
     0% {
-        background-position: 0%;
+        background-position: 0% 200%;
     }
-
+    
     100% {
-        background-position: 400%;
+        background-position: 0% 0%;
     }
 }
 
@@ -46,5 +49,4 @@ body {
     font-size: 1.2rem;
     display: inline-block;
     font-weight: bolder;
-    font-family: 'Montserrat', sans-serif;
 }
