@@ -1,6 +1,7 @@
 .hero {
     height: 100%;
     width: 100%;
+    /*background-color: #171717;*/
     background-image: url(https://www.gusd.net/cms/lib/CA01000648/Centricity/ModuleInstance/4704/large/Great%20To%20Be%20A%20Falcon%201.jpg);
     background-size: cover;
     background-position: center;

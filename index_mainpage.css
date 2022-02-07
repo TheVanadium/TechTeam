@@ -12,12 +12,14 @@
 .inner-mainpage h1 {
     font-weight: normal;
     font-size: 4rem;
+    color: black;
     margin: 0;
 }
 
 .inner-mainpage h2 {
     font-size: 1.5rem;
     font-weight: normal;
+    color: black;
     /*line-height: 1.5;*/
 }
 

@@ -2,22 +2,22 @@ body {
     background-color: #171717;
 }
 
-body::-webkit-scrollbar {
-    width: 0.6em;
-}
+/*body::-webkit-scrollbar {*/
+/*    width: 0.6em;*/
+/*}*/
 
-body::-webkit-scrollbar-track {
-    margin-block-end: 5px;
-}
+/*body::-webkit-scrollbar-track {*/
+/*    margin-block-end: 5px;*/
+/*}*/
 
-body::-webkit-scrollbar-thumb {
-    background: #424242;
-    border-radius: 100px;
-}
+/*body::-webkit-scrollbar-thumb {*/
+/*    background: #424242;*/
+/*    border-radius: 100px;*/
+/*}*/
 
-body::-webkit-scrollbar-thumb:hover {
-    background: #aaaaaa;
-}
+/*body::-webkit-scrollbar-thumb:hover {*/
+/*    background: #aaaaaa;*/
+/*}*/
 
 .tasks::-webkit-scrollbar {
     width: 0.6em;
