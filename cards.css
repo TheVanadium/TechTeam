@@ -1,3 +1,7 @@
+body{
+    background-color: #171717;
+}
+
 .cards{
     padding-top: 20px;
     margin: 0 auto;
@@ -24,6 +28,10 @@
     box-shadow: 0 0 1px black;
 }
 
+.card__content::-webkit-scrollbar{
+    display: none;
+}
+
 .card__info{
     padding: 15px;
     display: flex;
@@ -48,6 +56,24 @@
     color: #3b3b3b;
     background: #e3e1e1;
     cursor: pointer;
+}
+
+.card__info button:hover{
+    animation: thumbs 2s ease-in-out;
+    background: linear-gradient(90deg, #3b3b3b, red);
+    background-size: 200% 100%;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+}
+
+@keyframes thumbs{
+    0%{
+        background-position: 200% 0%;
+    }
+    
+    100%{
+        background-position: -100% 0%;
+    }
 }
 
 .card__link{
