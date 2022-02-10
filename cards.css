@@ -2,33 +2,6 @@ body{
     background-color: #171717;
 }
 
-.card::before, .card::after{
-    content: '';
-    position: absolute;
-    /*left: -2px;*/
-    /*top: -2px;*/
-    background: linear-gradient(45deg, #a24dff, #0051ff, #8c8c8c);
-    background-size: 200%;
-    width: 105%;
-    /*height: calc(100% + 5px);*/
-    /*z-index: -1;*/
-    animation: backglow 20s ease-in-out infinite;
-}
-
-@keyframes backglow{
-    0%{
-        background-position: 0 0;
-    }
-    
-    50%{
-        background-position: 200% 0;
-    }
-    
-    100%{
-        background-position: 0 0;
-    }
-}
-
 .cards{
     padding-top: 20px;
     margin: 0 auto;
@@ -37,6 +10,30 @@ body{
     grid-template-columns: repeat(auto-fill, minmax(225px, 1fr));
     gap: 50px;
     font-family: sans-serif;
+}
+
+.card{
+    border-width: 6px;
+    border-style: dashed;
+    border-radius: 1em;
+    animation: backglow 2s ease-in-out infinite;
+}
+
+@keyframes backglow{
+    0%{
+         border-image: linear-gradient(45deg, red, #a24dff, #0051ff, #8c8c8c, purple, yellow, blue, cyan, grey);
+         border-image-slice: 1;
+    }
+    
+    50%{
+        border-image: linear-gradient(-45deg, red, #a24dff, #0051ff, #8c8c8c, purple, yellow, blue, cyan, grey);
+        border-image-slice: 1;
+    }
+    
+    100%{
+        border-image: linear-gradient(45deg, red, #a24dff, #0051ff, #8c8c8c, purple, yellow, blue, cyan, grey);
+        border-image-slice: 1;
+    }
 }
 
 .card__image{
