@@ -14,9 +14,9 @@ body{
 
 .card{
     border-width: 6px;
-    border-style: dashed;
-    border-radius: 1em;
-    animation: backglow 2s ease-in-out infinite;
+    border-style: inset;
+    border-color: grey;
+    /*animation: backglow 2s ease-in-out infinite alternate;*/
 }
 
 @keyframes backglow{
@@ -38,6 +38,7 @@ body{
 
 .card__image{
     width: 100%;
+    height: 53%;
     display: block;
     box-shadow: 0 0 1px black;
 }
@@ -83,22 +84,18 @@ body{
 }
 
 .card__info button:hover{
-    animation: thumbs 2s ease-in-out;
-    background: linear-gradient(90deg, #3b3b3b, red);
-    background-size: 200% 100%;
-    -webkit-text-fill-color: transparent;
-    -webkit-background-clip: text;
+    color: #eb4034;
 }
 
-@keyframes thumbs{
-    0%{
-        background-position: 200% 0%;
-    }
+/*@keyframes thumbs{*/
+    /*0%{*/
+    /*    color: #3b3b3b;*/
+    /*}*/
     
-    100%{
-        background-position: -100% 0%;
-    }
-}
+/*    100%{*/
+/*        color: #ff2919;*/
+/*    }*/
+/*}*/
 
 .card__link{
     color: #64968c;
