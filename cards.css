@@ -1,8 +1,8 @@
-body{
+body {
     background-color: #171717;
 }
 
-.cards{
+.cards {
     padding-top: 20px;
     margin: 0 auto;
     max-width: 90%;
@@ -12,13 +12,13 @@ body{
     font-family: sans-serif;
 }
 
-.card__image{
+.card__image {
     width: 100%;
     display: block;
     box-shadow: 0 0 1px black;
 }
 
-.card__content{
+.card__content {
     line-height: 1.5;
     font-size: 0.9rem;
     padding: 15px;
@@ -28,11 +28,11 @@ body{
     box-shadow: 0 0 1px black;
 }
 
-.card__content::-webkit-scrollbar{
+.card__content::-webkit-scrollbar {
     display: none;
 }
 
-.card__info{
+.card__info {
     padding: 15px;
     display: flex;
     justify-content: space-between;
@@ -44,12 +44,12 @@ body{
     border-bottom: 2px solid #cccccc;
 }
 
-.card__info i{
+.card__info i {
     font-size: 0.9em;
     margin-right: 8px;
 }
 
-.card__info button{
+.card__info button {
     text-decoration: none;
     font-size: 0.7rem;
     border: none;
@@ -58,7 +58,7 @@ body{
     cursor: pointer;
 }
 
-.card__info button:hover{
+.card__info button:hover {
     animation: thumbs 2s ease-in-out;
     background: linear-gradient(90deg, #3b3b3b, red);
     background-size: 200% 100%;
@@ -66,22 +66,22 @@ body{
     -webkit-background-clip: text;
 }
 
-@keyframes thumbs{
-    0%{
+@keyframes thumbs {
+    0% {
         background-position: 200% 0%;
     }
-    
-    100%{
+
+    100% {
         background-position: -100% 0%;
     }
 }
 
-.card__link{
+.card__link {
     color: #64968c;
     text-decoration: none;
 }
 
-.card__link:hover{
+.card__link:hover {
     text-decoration: underline;
     color: #4bbfcc;
 }
