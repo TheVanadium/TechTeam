@@ -1,16 +1,15 @@
-import firebase from "firebase/app";
-import "firebase/firestore";
+import firebase from "firebase/app"
+import "firebase/auth"
 
-const firebaseConfig = {
-    apiKey: "AIzaSyAYbHvFRpO1vwjo8zTeGlQOmgTETfO_5u4",
-    authDomain: "cvtechteam-c44a2.firebaseapp.com",
-    projectId: "cvtechteam-c44a2",
-    storageBucket: "cvtechteam-c44a2.appspot.com",
-    messagingSenderId: "724830760584",
-    appId: "1:724830760584:web:f103595593f11349ed793d",
-    measurementId: "G-WF0BXB7HLT"
-  };
+const app = firebase.initializeApp({
+    apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.EACT_APP_FIREBASE_APP_ID,
+  measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID
+})
 
-  firebase.initializeApp(firebaseConfig);
-
-  export default firebase;
+export const auth = app.auth()
+export default app
