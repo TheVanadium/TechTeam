@@ -3,7 +3,9 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.4.0/firebase
 import { 
     getAuth, 
     signInWithEmailAndPassword, 
-    connectAuthEmulator
+    connectAuthEmulator,
+    onAuthStateChanged,
+    createUserWithEmailAndPassword
 } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-auth.js";
 import { getFirestore} from "https://www.gstatic.com/firebasejs/9.4.0/firebase-firestore.js";
 
@@ -25,10 +27,13 @@ measurementId: "G-WF0BXB7HLT"
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
-const auth = getAuth(app);
 const db = getFirestore(app);
+const auth = getAuth(app);
+const user = auth.currentUser;
 
-connectAuthEmulator(auth, "http://localhost:9099");
+
+
+// connectAuthEmulator(auth, "http://localhost:9099");
 
 //sign up
 const signupForm = document.querySelector('#register');
@@ -46,7 +51,47 @@ console.log(userCredential.user);
     }
     catch(error) {
     console.log(error);
+    try{
+    createUserWithEmailAndPassword(email, password);
+
     }
+    catch(error) {
+        console.log("User already logged in");
+    }
+    }
+    
+    onAuthStateChanged(auth, (user) =>{
+        if(user) {
+            const uid = user.uid;
+            console.log("Logged in successfully");
+        }
+        else{
+            console.log("User is logged out");
+        }
+    })
+    
+    if(user !==null) {
+         // The user object has basic properties such as display name, email, etc.
+  const displayName = user.displayName;
+  const email = user.email;
+  const photoURL = user.photoURL;
+  const emailVerified = user.emailVerified;
+
+  // The user's ID, unique to the Firebase project. Do NOT use
+  // this value to authenticate with your backend server, if
+  // you have one. Use User.getToken() instead.
+  const uid = user.uid;
+  
+  user.providerData.forEach((profile) => {
+    console.log("Sign-in provider: " + profile.providerId);
+    console.log("  Provider-specific UID: " + profile.uid);
+    console.log("  Name: " + profile.displayName);
+    console.log("  Email: " + profile.email);
+    console.log("  Photo URL: " + profile.photoURL);
+  });
+    }
+    
+    
 })
 
 
