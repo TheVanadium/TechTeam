@@ -1,0 +1,141 @@
+body {
+    background-color: #171717;
+}
+
+.cards {
+    padding-top: 20px;
+    margin: 0 auto;
+    max-width: 90%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(225px, 1fr));
+    gap: 50px;
+    font-family: sans-serif;
+}
+
+.card {
+    border-width: 6px;
+    border-style: inset;
+    border-color: grey;
+    /*animation: backglow 2s ease-in-out infinite alternate;*/
+}
+
+@keyframes backglow {
+    0% {
+        border-image: linear-gradient(
+            45deg,
+            red,
+            #a24dff,
+            #0051ff,
+            #8c8c8c,
+            purple,
+            yellow,
+            blue,
+            cyan,
+            grey
+        );
+        border-image-slice: 1;
+    }
+
+    50% {
+        border-image: linear-gradient(
+            -45deg,
+            red,
+            #a24dff,
+            #0051ff,
+            #8c8c8c,
+            purple,
+            yellow,
+            blue,
+            cyan,
+            grey
+        );
+        border-image-slice: 1;
+    }
+
+    100% {
+        border-image: linear-gradient(
+            45deg,
+            red,
+            #a24dff,
+            #0051ff,
+            #8c8c8c,
+            purple,
+            yellow,
+            blue,
+            cyan,
+            grey
+        );
+        border-image-slice: 1;
+    }
+}
+
+.card__image {
+    width: 100%;
+    height: 53%;
+    display: block;
+    box-shadow: 0 0 1px black;
+}
+
+.card__content {
+    line-height: 1.5;
+    font-size: 0.9rem;
+    padding: 15px;
+    background: #eeeeee;
+    height: 150px;
+    overflow-y: scroll;
+    box-shadow: 0 0 1px black;
+}
+
+.card__content::-webkit-scrollbar {
+    display: none;
+}
+
+.card__info {
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #555555;
+    background: #e3e1e1;
+    font-size: 0.8em;
+    box-shadow: 0 0 1px black;
+    border-bottom: 2px solid #cccccc;
+}
+
+.card__info i {
+    font-size: 0.9em;
+    margin-right: 8px;
+}
+
+.card__info button {
+    text-decoration: none;
+    font-size: 0.7rem;
+    border: none;
+    color: #3b3b3b;
+    background: #e3e1e1;
+    cursor: pointer;
+}
+
+.card__info button:hover {
+    color: #eb4034;
+}
+
+/*@keyframes thumbs{*/
+/*0%{*/
+/*    color: #3b3b3b;*/
+/*}*/
+
+/*    100%{*/
+/*        color: #ff2919;*/
+/*    }*/
+/*}*/
+
+.card__link {
+    color: #64968c;
+    text-decoration: none;
+}
+
+.card__link:hover {
+    text-decoration: underline;
+    color: #4bbfcc;
+}
