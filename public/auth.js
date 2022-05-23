@@ -44,54 +44,16 @@ signupForm.addEventListener('submit', (e) =>{
     const email = signupForm['signupEmail'].value;
     const password = signupForm['signupPassword'].value;
 
-    try {
-//sign up the user
-const userCredential = signInWithEmailAndPassword(auth, email, password);
-console.log(userCredential.user);
-    }
-    catch(error) {
+    createUserWithEmailAndPassword(auth, email, password)
+  .then((userCredential) => {
+    // Signed in 
+    const user = userCredential.user;
+    console.log("User signed up!")
+    signupForm.reset();
+  })
+  .catch((error) => {
     console.log(error);
-    try{
-    createUserWithEmailAndPassword(email, password);
-
-    }
-    catch(error) {
-        console.log("User already logged in");
-    }
-    }
-    
-    onAuthStateChanged(auth, (user) =>{
-        if(user) {
-            const uid = user.uid;
-            console.log("Logged in successfully");
-        }
-        else{
-            console.log("User is logged out");
-        }
-    })
-    
-    if(user !==null) {
-         // The user object has basic properties such as display name, email, etc.
-  const displayName = user.displayName;
-  const email = user.email;
-  const photoURL = user.photoURL;
-  const emailVerified = user.emailVerified;
-
-  // The user's ID, unique to the Firebase project. Do NOT use
-  // this value to authenticate with your backend server, if
-  // you have one. Use User.getToken() instead.
-  const uid = user.uid;
-  
-  user.providerData.forEach((profile) => {
-    console.log("Sign-in provider: " + profile.providerId);
-    console.log("  Provider-specific UID: " + profile.uid);
-    console.log("  Name: " + profile.displayName);
-    console.log("  Email: " + profile.email);
-    console.log("  Photo URL: " + profile.photoURL);
   });
-    }
-    
-    
 })
 
 
