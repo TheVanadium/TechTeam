@@ -41,6 +41,7 @@ signupForm.addEventListener('submit', (e) =>{
     e.preventDefault();
 
     //get user info
+    const id = signupForm['signupId'].value;
     const email = signupForm['signupEmail'].value;
     const password = signupForm['signupPassword'].value;
 
@@ -55,6 +56,68 @@ signupForm.addEventListener('submit', (e) =>{
     console.log(error);
   });
 })
+
+const loginForm = document.querySelector('#login');
+loginForm.addEventListener('submit', (e) =>{
+    e.preventDefault();
+
+    //get user info
+    const email = loginForm['loginEmail'].value;
+    const password = loginForm['loginPassword'].value;
+
+    signInWithEmailAndPassword(auth, email, password)
+  .then((userCredential) => {
+    // Signed in 
+    const user = userCredential.user;
+    // ...
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+  });
+})
+
+
+//Set an authentication state observer and get user data For each of your app's pages that 
+//need information about the signed-in user, attach an observer to the global authentication 
+//object. This observer gets called whenever the user's sign-in state changes. Attach the 
+//observer using the onAuthStateChanged method. When a user successfully signs in, you can 
+//get information about the user in the observer.
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    // User is signed in, see docs for a list of available properties
+    // https://firebase.google.com/docs/reference/js/firebase.User
+    const uid = user.uid;
+    // ...
+  } else {
+    // User is signed out
+    // ...
+  }
+});
+
+
+
+//Get user's profile
+if (user !== null) {
+  // The user object has basic properties such as display name, email, etc.
+  const displayName = user.displayName;
+  const email = user.email;
+  const photoURL = user.photoURL;
+  const emailVerified = user.emailVerified;
+  
+  user.providerData.forEach((profile) => {
+    console.log("Sign-in provider: " + profile.providerId);
+    console.log("  Provider-specific UID: " + profile.uid);
+    console.log("  Name: " + profile.displayName);
+    console.log("  Email: " + profile.email);
+    console.log("  Photo URL: " + profile.photoURL);
+  });
+
+  // The user's ID, unique to the Firebase project. Do NOT use
+  // this value to authenticate with your backend server, if
+  // you have one. Use User.getToken() instead.
+  const uid = user.uid;
+}
 
 
 export const showLoginError = (error) => {
