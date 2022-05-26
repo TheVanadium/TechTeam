@@ -84,8 +84,8 @@
 
 .input-box {
     border-radius: 20px;
-    padding: 10px;
-    margin: 10px 0;
+    padding: 16px;
+    margin: 0px 0 40px 0;
     width: 80%;
     border: 1px solid #999;
     outline: none;
@@ -108,7 +108,7 @@ button {
     width: 80%;
     padding: 10px;
     border-radius: 20px;
-    font-size: 15px;
+    font-size: 1    px;
     margin: 10px 0;
     border: none;
     outline: none;
