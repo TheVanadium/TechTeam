@@ -90,7 +90,7 @@
     border: 2px solid #999;
     outline: none;
     background: transparent;
-    animation-name: input-box-yes;
+    animation-name: input-box-no;
     animation-duration: 0.5s;
     animation-iteration-count: infinite;
     position: relative;
@@ -123,6 +123,11 @@
     {
         left: 0px;
     }
+    100%
+    {
+        border: 2px solid #ff0000;
+        box-shadow: 0 0 1px 2px #ff0000;
+    }
 }
     
 @keyframes input-box-yes {
@@ -138,7 +143,7 @@
 
 #msg{
     color: red;
-    
+    margin: -5px 0 10px 0;
 }
 
 .check-box {
