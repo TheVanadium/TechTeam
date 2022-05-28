@@ -35,17 +35,33 @@ const user = auth.currentUser;
 
 // connectAuthEmulator(auth, "http://localhost:9099");
 
+
+function setError(input, message)
+{
+  const formControl = input.parentElement(); //form-control
+  const p = formControl.querySelector("#msg");
+  
+  p.innerHTML(message);
+  
+  
+}
+
 //sign up
 const signupForm = document.querySelector('#register');
 signupForm.addEventListener('submit', (e) =>{
     e.preventDefault();
 
     //get user info
-    const id = signupForm['signupId'].value;
+    const id = signupForm['signupId'].value.trim(); //!!! trim()
     const email = signupForm['signupEmail'].value;
     const password = signupForm['signupPassword'].value;
-
-    createUserWithEmailAndPassword(auth, email, password)
+    
+    if(id==="")
+    {
+      setErrorFor(id, "TEST LOL");
+    }
+    else{
+      createUserWithEmailAndPassword(auth, email, password)
   .then((userCredential) => {
     // Signed in 
     const user = userCredential.user;
@@ -55,6 +71,9 @@ signupForm.addEventListener('submit', (e) =>{
   .catch((error) => {
     console.log(error);
   });
+    }
+
+    
 })
 
 const loginForm = document.querySelector('#login');
