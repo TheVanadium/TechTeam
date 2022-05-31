@@ -47,10 +47,10 @@
 
         <!-- login form that takes in email, password, remember-me checkbox, and signup-btn button -->
         <form id="login" class="input-group">
-                <input type="text" id= "loginEmail" class="input-box" placeholder="Email" required>
-                <p id="msg">Invalid Email Format!</p>
+                <input type="text" id="loginEmail" class="input-box" placeholder="Email" required>
+                <p class="msg" id="loginEmailMsg">Invalid Email Format!</p>
                 <input type="password" id="loginPassword" class="input-box" placeholder="Password" required>
-                <p id="msg">Incorrect Password!</p>
+                <p class="msg" id="loginPasswordMsg">Incorrect Password!</p>
                 <br/>
                 <input type="checkbox" class="check-box"><span>Remember Password</span>
                 <button type ="buton" class="signup-btn" onclick="login"><a href="task.html">Sign in</a></button>
@@ -59,10 +59,11 @@
         <!-- register form that takes in student id, email, password, and signup-btn button -->
         <form id="register" class="input-group">
                 <input type="text" id="signupId" class="input-box" placeholder="Your Id"/>
+                <p class="msg" id="signupIdMsg"></p>
                 <input type="email" id="signupEmail" class="input-box" placeholder="Your Email"/>
-                <p id="msg">Invalid Email Format!</p>
+                <p class="msg" id="signupEmailMsg"></p>
                 <input type="password" id="signupPassword" class="input-box" placeholder="Your Password"/>
-                <p id="msg">Password Must Be At Least 12 Characters And Contains A Special Letter!</p>
+                <p class="msg" id="signupPasswordMsg"></p>
                 <button type ="buton" class="signup-btn">Sign up</button>
         </form>
     </div>

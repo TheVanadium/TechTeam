@@ -36,18 +36,13 @@ const user = auth.currentUser;
 // connectAuthEmulator(auth, "http://localhost:9099");
 
 
-function setError(input, message)
+function setErrorFor(input, message)
 {
-  const formControl = input.parentElement(); //form-control
-  const p = formControl.querySelector("#msg");
-  
-  p.innerHTML(message);
-  
-  
+  document.getElementById(input).innerHTML = message;
 }
 
 //sign up
-const signupForm = document.querySelector('#register');
+var signupForm = document.querySelector('#register');
 signupForm.addEventListener('submit', (e) =>{
     e.preventDefault();
 
@@ -56,21 +51,29 @@ signupForm.addEventListener('submit', (e) =>{
     const email = signupForm['signupEmail'].value;
     const password = signupForm['signupPassword'].value;
     
-    if(id==="")
+    if(id=="")
     {
-      setErrorFor(id, "TEST LOL");
+        setErrorFor('signupIdMsg', "Invalid User Id!");
+    }
+    else if(email=="")
+    {
+      setErrorFor('signupEmailMsg', "Invalid Email Format!")
+    }
+    else if(password=="")
+    {
+      setErrorFor('signupPasswordMsg', "At Least 12 Characters And Contains A Special Letter!");
     }
     else{
-      createUserWithEmailAndPassword(auth, email, password)
-  .then((userCredential) => {
+        createUserWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
     // Signed in 
     const user = userCredential.user;
     console.log("User signed up!")
     signupForm.reset();
-  })
-  .catch((error) => {
-    console.log(error);
-  });
+    })
+        .catch((error) => {
+            console.log(error);
+        });
     }
 
     
