@@ -54,12 +54,13 @@ signupForm.addEventListener('submit', (e) =>{
     if(id=="")
     {
         setErrorFor('signupIdMsg', "Invalid User Id!");
+        // document.getElementById('signupIdMsg').addClass('input-box-yes');
     }
-    else if(email=="")
+    if(email=="")
     {
       setErrorFor('signupEmailMsg', "Invalid Email Format!")
     }
-    else if(password=="")
+    if(password=="")
     {
       setErrorFor('signupPasswordMsg', "At Least 12 Characters And Contains A Special Letter!");
     }
@@ -79,6 +80,9 @@ signupForm.addEventListener('submit', (e) =>{
     
 })
 
+
+
+//login
 const loginForm = document.querySelector('#login');
 loginForm.addEventListener('submit', (e) =>{
     e.preventDefault();
@@ -86,7 +90,17 @@ loginForm.addEventListener('submit', (e) =>{
     //get user info
     const email = loginForm['loginEmail'].value;
     const password = loginForm['loginPassword'].value;
-
+    
+    if(email=="")
+    {
+      setErrorFor('loginEmailMsg', "Invalid Email Format!")
+    }
+    if(password=="")
+    {
+      setErrorFor('loginPasswordMsg', "At Least 12 Characters And Contains A Special Letter!");
+    }
+    else
+    {
     signInWithEmailAndPassword(auth, email, password)
   .then((userCredential) => {
     // Signed in 
@@ -97,6 +111,7 @@ loginForm.addEventListener('submit', (e) =>{
     const errorCode = error.code;
     const errorMessage = error.message;
   });
+    }
 })
 
 
