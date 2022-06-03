@@ -66,18 +66,16 @@ signupForm.addEventListener('submit', (e) =>{
     }
     else{
         createUserWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
-    // Signed in 
-    const user = userCredential.user;
-    console.log("User signed up!")
-    signupForm.reset();
-    })
+        .then((userCredential) => {
+            // Signed in 
+            const user = userCredential.user;
+            console.log("User signed up!")
+            signupForm.reset();
+            })
         .catch((error) => {
             console.log(error);
         });
-    }
-
-    
+    } 
 })
 
 
@@ -105,7 +103,9 @@ loginForm.addEventListener('submit', (e) =>{
   .then((userCredential) => {
     // Signed in 
     const user = userCredential.user;
-    // ...
+
+    location.href="task.html";
+    // window.open("task.html");
   })
   .catch((error) => {
     const errorCode = error.code;

@@ -4,7 +4,6 @@
 <meta name="description" content="Web App for CVHS Tech Team">
 <meta name="author" content="Kevin and Eli">
 <meta name="keywords" content="HTML, web app">
-<!-- <meta name="viewport" content="with-device-width, initial-scale=1.0"> -->
 
 <head>
     <link rel="stylesheet" type="text/css" href="style.css">
@@ -45,24 +44,28 @@
             <button type="button" class="toggle-btn" onclick="registerpage()">Sign up</button>
         </div>
 
+
+
         <!-- login form that takes in email, password, remember-me checkbox, and signup-btn button -->
         <form id="login" class="input-group">
-                <input type="text" id="loginEmail" class="input-box" placeholder="Email" required>
+                <input type="text" id="loginEmail" class="input-box" placeholder="Email" required autofocus>
                 <p class="msg" id="loginEmailMsg"></p>
                 <input type="password" id="loginPassword" class="input-box" placeholder="Password" required>
                 <p class="msg" id="loginPasswordMsg"></p>
                 <br/>
                 <input type="checkbox" class="check-box"><span>Remember Password</span>
-                <button type ="buton" class="signup-btn" onclick="login"><a href="task.html">Sign in</a></button>
+                <button type ="buton" class="signup-btn">Sign in</button>
         </form>
+
+
 
         <!-- register form that takes in student id, email, password, and signup-btn button -->
         <form id="register" class="input-group">
-                <input type="text" id="signupId" class="input-box" placeholder="Your Id"/>
+                <input type="number" id="signupId" class="input-box" placeholder="Your Id" required/>
                 <p class="msg" id="signupIdMsg"></p>
-                <input type="email" id="signupEmail" class="input-box" placeholder="Your Email"/>
+                <input type="email" id="signupEmail" class="input-box" placeholder="Your Email" required/>
                 <p class="msg" id="signupEmailMsg"></p>
-                <input type="password" id="signupPassword" class="input-box" placeholder="Your Password"/>
+                <input type="password" id="signupPassword" class="input-box" placeholder="Your Password" required/>
                 <p class="msg" id="signupPasswordMsg"></p>
                 <button type ="buton" class="signup-btn">Sign up</button>
         </form>
@@ -94,12 +97,24 @@
         y.style.left = "-500px";
         z.style.left = "0px";
     }
-    
-    function login()
-    {
-        
-    }
 </script>
+
+
+
+<!--Hide Input Number Arrows-->
+<style>
+    /* Chrome, Safari, Edge, Opera */
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+    
+    /* Firefox */
+    input[type=number] {
+      -moz-appearance: textfield;
+    }
+    </style>
 
 
 
