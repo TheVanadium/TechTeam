@@ -52,3 +52,38 @@
     display: inline-block;
     font-weight: bolder;
 }
+
+.slider {
+    background-color: #555555;
+    position: absolute;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    overflow: scroll;
+}
+
+.slider-inner {
+    position:absolute;
+    height: 100%;
+    width: 2800px;
+    display: flex;
+    justify-content: space-around;
+}   
+
+.item {
+    position: relative;
+    width: 400px;
+    height: 100%;
+    overflow: hidden;
+    /* background-color: rebeccapurple; */
+}
+
+.img {
+    position: absolute;
+    left: -100px;
+    width: 600px;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    /* background-color: red; */
+}
