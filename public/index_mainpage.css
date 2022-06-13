@@ -65,17 +65,17 @@
 .slider-inner {
     position:absolute;
     height: 100%;
-    width: 2800px;
+    width: auto;
     display: flex;
     justify-content: space-around;
 }   
 
 .item {
+    margin: 0 100px;
     position: relative;
-    width: 600px;
+    width: 1000px;
     height: 100%;
     overflow: hidden;
-    /* background-color: rebeccapurple; */
 }
 
 .img {
@@ -84,6 +84,4 @@
     height: 100%;
     background-size: cover;
     background-position: center;
-     background-color: red; 
-     /*background-image: url("https://www.gusd.net/cms/lib/CA01000648/Centricity/Domain/1639/Falcons.jpg");*/
 }

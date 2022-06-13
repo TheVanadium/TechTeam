@@ -31,33 +31,12 @@ const db = getFirestore(app);
 const auth = getAuth(app);
 const user = auth.currentUser;
 
-let images = [document.querySelectorAll('.img')];
-let slider = document.querySelector('.slider');
-
-
-
-//Get all the images
-var image_array = [
-  '1.HEIC',
-  '2.HEIC',
-  '3.HEIC',
-  '4.HEIC',
-  '5.HEIC',
-  '6.HEIC',
-  '7.HEIC',
-  '8.HEIC',
-  '9.HEIC'
-]
-
-
-function get_random_image(){
-  //Get a random index
-  const random_index = Math.floor(Math.random() * image_array.length);
-
-  //Get an image at the random_index
-  const selected_image = image_array[random_index];
-
-  //Display the image
-  // document.getElementById('imgtest').src = `./imgs/${selected_image}`;
-  document.getElementsByClassName('img').src = "1.HTIC";
+function animateImages()
+{
+    let img = document.querySelectorAll('.img');
+    img.forEach(item => {
+        // item.style.transform = "translateX(100px)";
+    });
 }
+
+animateImages();
