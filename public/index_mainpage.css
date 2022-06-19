@@ -23,7 +23,7 @@
     /*line-height: 1.5;*/
 }
 
-.inner-mainpage span{
+.inner-mainpage span {
     font-size: 5rem;
     animation: arrows 2s infinite ease-out;
     background: linear-gradient(-30deg, black 85%, white, black 95%);
@@ -32,11 +32,11 @@
     -webkit-background-clip: text;
 }
 
-@keyframes arrows{
+@keyframes arrows {
     0% {
         background-position: 0% 200%;
     }
-    
+
     100% {
         background-position: 0% 0%;
     }
@@ -63,12 +63,12 @@
 }
 
 .slider-inner {
-    position:absolute;
+    position: absolute;
     height: 100%;
     width: auto;
     display: flex;
     justify-content: space-around;
-}   
+}
 
 .item {
     margin: 0 100px;

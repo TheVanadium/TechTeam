@@ -33,10 +33,14 @@ const user = auth.currentUser;
 
 function animateImages()
 {
-    let img = document.querySelectorAll('.img');
+    var img = document.querySelectorAll('.img');
+    var scroll = document.querySelector(".slider")
     img.forEach(item => {
-        // item.style.transform = "translateX(100px)";
+        scroll.addEventListener("scroll", e =>{
+            // console.log(scroll.scrollLeft.toFixed(2));
+            item.style.transform = `translateX(${scroll.scrollLeft/10}px)`;
+        }, { passive: true })
     });
 }
 
-animateImages();
+// animateImages();
