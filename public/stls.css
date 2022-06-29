@@ -90,47 +90,52 @@
     border: 2px solid #999;
     outline: none;
     background: transparent;
-    /*animation-name: input-box-no;*/
-    /*animation-duration: 0.5s;*/
-    /*animation-iteration-count: infinite;*/
     position: relative;
 }
 
-@keyframes input-box-no {
+.input-box-no{
+    animation: no 0.5s;
+    border: 2px solid #ff0000;
+    box-shadow: 0 0 1px 2px #ff0000;
+}
+
+.input-box-yes{
+    animation: yes 0.5s;
+    border: 2px solid #00ff08;
+    box-shadow: 0 0 1px 2px #00ff08;
+}
+
+@keyframes no {
     0%{
-    border: 2px solid #999;
-    }
-    
-    40%{
         left: 0px;
     }
     
+    10%
+    {
+        left: 4px;
+    }
+    
+    20%
+    {
+        left: -4px;
+    }
+    
+    30%
+    {
+        left: 4px;
+    }
+    40%
+    {
+        left: 0px;
+    }
     50%
-    {
-        left: 3px;
-    }
-    
-    60%
-    {
-        left: -3px;
-    }
-    
-    70%
-    {
-        left: 3px;
-    }
-    80%
-    {
-        left: 0px;
-    }
-    100%
     {
         border: 2px solid #ff0000;
         box-shadow: 0 0 1px 2px #ff0000;
     }
 }
     
-@keyframes input-box-yes {
+@keyframes yes {
     0%{
     border: 2px solid #999;
     }

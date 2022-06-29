@@ -48,9 +48,9 @@
 
         <!-- login form that takes in email, password, remember-me checkbox, and signup-btn button -->
         <form id="login" class="input-group">
-                <input type="text" id="loginEmail" class="input-box" placeholder="Email" required autofocus>
+                <input type="text" id="loginEmail" class="input-box" placeholder="Email" autofocus>
                 <p class="msg" id="loginEmailMsg"></p>
-                <input type="password" id="loginPassword" class="input-box" placeholder="Password" required>
+                <input type="password" id="loginPassword" class="input-box" placeholder="Password">
                 <p class="msg" id="loginPasswordMsg"></p>
                 <br/>
                 <input type="checkbox" class="check-box"><span>Remember Password</span>
@@ -61,11 +61,11 @@
 
         <!-- register form that takes in student id, email, password, and signup-btn button -->
         <form id="register" class="input-group">
-                <input type="number" id="signupId" class="input-box" placeholder="Your Id" required/>
+                <input type="number" id="signupId" class="input-box" placeholder="Your Id" maxlength="10"/>
                 <p class="msg" id="signupIdMsg"></p>
-                <input type="email" id="signupEmail" class="input-box" placeholder="Your Email" required/>
+                <input type="email" id="signupEmail" class="input-box" placeholder="Your Email"/>
                 <p class="msg" id="signupEmailMsg"></p>
-                <input type="password" id="signupPassword" class="input-box" placeholder="Your Password" required/>
+                <input type="password" id="signupPassword" class="input-box" placeholder="Your Password" minlength="12"/>
                 <p class="msg" id="signupPasswordMsg"></p>
                 <button type ="buton" class="signup-btn">Sign up</button>
         </form>

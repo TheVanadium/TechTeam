@@ -41,46 +41,78 @@ function setErrorFor(input, message)
   document.getElementById(input).innerHTML = message;
 }
 
-//sign up
+
+
+    //sign up
 var signupForm = document.querySelector('#register');
 signupForm.addEventListener('submit', (e) =>{
-    e.preventDefault();
 
     //get user info
     const id = signupForm['signupId'].value.trim(); //!!! trim()
     const email = signupForm['signupEmail'].value;
     const password = signupForm['signupPassword'].value;
+    var tempToken = 0;
     
-    if(id=="")
+
+    if(id.substr(0,4)!="1306")
     {
-        setErrorFor('signupIdMsg', "Invalid User Id!");
-        // document.getElementById('signupIdMsg').addClass('input-box-yes');
+      setErrorFor('signupIdMsg', "Invalid User Id!!!!");
+      tempToken++;
+      setTimeout(function(){
+        document.getElementById('signupId').classList.add("input-box-no");
+        }, 10); 
+        document.getElementById('signupId').classList.remove("input-box-no");
+    }
+    else if(id="")
+    {
+      setErrorFor('signupIdMsg', "Invalid User Id!!!!");
+      tempToken++;
+      setTimeout(function(){
+        document.getElementById('signupId').classList.add("input-box-no");
+        }, 10); 
+        document.getElementById('signupId').classList.remove("input-box-no");
     }
     if(email=="")
     {
       setErrorFor('signupEmailMsg', "Invalid Email Format!")
+      tempToken++;
+      setTimeout(function(){
+        document.getElementById('signupEmail').classList.add("input-box-no");
+        }, 10); 
+        document.getElementById('signupEmail').classList.remove("input-box-no");
     }
     if(password=="")
     {
       setErrorFor('signupPasswordMsg', "At Least 12 Characters And Contains A Special Letter!");
+      tempToken++;
+      setTimeout(function(){
+        document.getElementById('signupPassword').classList.add("input-box-no");
+        }, 10); 
+        document.getElementById('signupPassword').classList.remove("input-box-no");
     }
-    else{
+    if(tempToken==0){
         createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
             // Signed in 
             const user = userCredential.user;
             console.log("User signed up!")
-            signupForm.reset();
+            setTimeout(function(){
+              location.reload();
+              }, 1000); 
             })
         .catch((error) => {
             console.log(error);
         });
     } 
+    // console.log(tempToken);
+    e.preventDefault();
 })
 
 
 
-//login
+
+
+    //login
 const loginForm = document.querySelector('#login');
 loginForm.addEventListener('submit', (e) =>{
     e.preventDefault();
@@ -91,11 +123,19 @@ loginForm.addEventListener('submit', (e) =>{
     
     if(email=="")
     {
-      setErrorFor('loginEmailMsg', "Invalid Email Format!")
+      setErrorFor('loginEmailMsg', "Invalid Email!")
+      setTimeout(function(){
+        document.getElementById('loginEmail').classList.add("input-box-no");
+        }, 10); 
+        document.getElementById('loginEmail').classList.remove("input-box-no");
     }
     if(password=="")
     {
-      setErrorFor('loginPasswordMsg', "At Least 12 Characters And Contains A Special Letter!");
+      setErrorFor('loginPasswordMsg', "Invalid Password!");
+      setTimeout(function(){
+        document.getElementById('loginPassword').classList.add("input-box-no");
+        }, 10); 
+        document.getElementById('loginPassword').classList.remove("input-box-no");
     }
     else
     {
@@ -108,6 +148,14 @@ loginForm.addEventListener('submit', (e) =>{
     // window.open("task.html");
   })
   .catch((error) => {
+    setErrorFor('loginEmailMsg', "Invalid Email!")
+      setErrorFor('loginPasswordMsg', "Invalid Password!");
+    setTimeout(function(){
+      document.getElementById('loginPassword').classList.add("input-box-no");
+      document.getElementById('loginEmail').classList.add("input-box-no");
+      }, 10); 
+      document.getElementById('loginEmail').classList.remove("input-box-no");
+      document.getElementById('loginPassword').classList.remove("input-box-no");
     const errorCode = error.code;
     const errorMessage = error.message;
   });
