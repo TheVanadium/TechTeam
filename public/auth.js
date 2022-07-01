@@ -36,6 +36,13 @@ const user = auth.currentUser;
 // connectAuthEmulator(auth, "http://localhost:9099");
 
 
+
+
+
+
+
+
+//set error message function
 function setErrorFor(input, message)
 {
   document.getElementById(input).innerHTML = message;
@@ -43,10 +50,15 @@ function setErrorFor(input, message)
 
 
 
+
+
+
+
+
     //sign up
 var signupForm = document.querySelector('#register');
 signupForm.addEventListener('submit', (e) =>{
-
+  
     //get user info
     const id = signupForm['signupId'].value.trim(); //!!! trim()
     const email = signupForm['signupEmail'].value;
@@ -54,7 +66,7 @@ signupForm.addEventListener('submit', (e) =>{
     var tempToken = 0;
     
 
-    if(id.substr(0,4)!="1306")
+      if(id.substr(0,4)!="1306")
     {
       setErrorFor('signupIdMsg', "Invalid User Id!!!!");
       tempToken++;
@@ -63,16 +75,7 @@ signupForm.addEventListener('submit', (e) =>{
         }, 10); 
         document.getElementById('signupId').classList.remove("input-box-no");
     }
-    else if(id="")
-    {
-      setErrorFor('signupIdMsg', "Invalid User Id!!!!");
-      tempToken++;
-      setTimeout(function(){
-        document.getElementById('signupId').classList.add("input-box-no");
-        }, 10); 
-        document.getElementById('signupId').classList.remove("input-box-no");
-    }
-    if(email=="")
+      if(email=="")
     {
       setErrorFor('signupEmailMsg', "Invalid Email Format!")
       tempToken++;
@@ -81,7 +84,7 @@ signupForm.addEventListener('submit', (e) =>{
         }, 10); 
         document.getElementById('signupEmail').classList.remove("input-box-no");
     }
-    if(password=="")
+      if(password=="")
     {
       setErrorFor('signupPasswordMsg', "At Least 12 Characters And Contains A Special Letter!");
       tempToken++;
@@ -90,12 +93,25 @@ signupForm.addEventListener('submit', (e) =>{
         }, 10); 
         document.getElementById('signupPassword').classList.remove("input-box-no");
     }
+
+
+
+
+
     if(tempToken==0){
         createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
             // Signed in 
             const user = userCredential.user;
             console.log("User signed up!")
+
+            document.getElementById('signupId').classList.add("input-box-yes");
+            document.getElementById('signupEmail').classList.add("input-box-yes");
+            document.getElementById('signupPassword').classList.add("input-box-yes");
+            setErrorFor('signupIdMsg', "");
+            setErrorFor('signupEmailMsg', "");
+            setErrorFor('signupPasswordMsg', "");
+
             setTimeout(function(){
               location.reload();
               }, 1000); 
@@ -104,9 +120,13 @@ signupForm.addEventListener('submit', (e) =>{
             console.log(error);
         });
     } 
-    // console.log(tempToken);
     e.preventDefault();
 })
+
+
+
+
+
 
 
 
@@ -120,33 +140,53 @@ loginForm.addEventListener('submit', (e) =>{
     //get user info
     const email = loginForm['loginEmail'].value;
     const password = loginForm['loginPassword'].value;
+    var tempToken = 0;
     
-    if(email=="")
+
+
+      if(email=="")
     {
       setErrorFor('loginEmailMsg', "Invalid Email!")
+      tempToken++;
       setTimeout(function(){
         document.getElementById('loginEmail').classList.add("input-box-no");
         }, 10); 
         document.getElementById('loginEmail').classList.remove("input-box-no");
     }
-    if(password=="")
+      if(password=="")
     {
       setErrorFor('loginPasswordMsg', "Invalid Password!");
+      tempToken++;
       setTimeout(function(){
         document.getElementById('loginPassword').classList.add("input-box-no");
         }, 10); 
         document.getElementById('loginPassword').classList.remove("input-box-no");
     }
-    else
+
+
+
+    if(tempToken==0)
     {
-    signInWithEmailAndPassword(auth, email, password)
+      signInWithEmailAndPassword(auth, email, password)
   .then((userCredential) => {
     // Signed in 
     const user = userCredential.user;
 
-    location.href="task.html";
-    // window.open("task.html");
+    document.getElementById('loginEmail').classList.add("input-box-yes");
+    document.getElementById('loginPassword').classList.add("input-box-yes");
+    setErrorFor('loginEmailMsg', "");
+    setErrorFor('loginPasswordMsg', "");
+
+
+
+    setTimeout(function(){
+      location.href="task.html";
+      // window.open("task.html");
+      }, 1000);
+
   })
+
+
   .catch((error) => {
     setErrorFor('loginEmailMsg', "Invalid Email!")
       setErrorFor('loginPasswordMsg', "Invalid Password!");
@@ -161,6 +201,11 @@ loginForm.addEventListener('submit', (e) =>{
   });
     }
 })
+
+
+
+
+
 
 
 //Set an authentication state observer and get user data For each of your app's pages that 
