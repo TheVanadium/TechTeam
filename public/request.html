@@ -32,97 +32,47 @@
             </ul>
         </div>
         
-        <div class="sign-up-form">
-
-            <h1>TechTeam Request Sign Up</h1>
-            <form>
-                <label for = "roles">I am a: </label>
-                <select name = "roles" id = "roles"onchange='checkUserType()'>
-                    <option value='select'>select one</option>
-                    <option value = "teacher"> Teacher </option>
-                    <option value = "student"> Student</option>
+        
+        <div class="requestForm">
+            <div class="headerForm">
+                <h1>Request Form</h1>
+            </div>
+                <input type="text" class="input-box" placeholder="Please Enter Your Full Name" required autofocus/>
+                <input type="text" class="input-box" placeholder="If Submit For A Student Please Enter Their Full Name"/>
+                <input type="email" class="input-box" placeholder="Please Provide Student's Email Address" required/>
+                <input type="number" class="input-box" placeholder="Your Phone Number(Optional)"/>
+                <input type="number" class="input-box" placeholder="Room Number/Student Id" maxlength="6" required/>
+                <select>
+                    <option>Printer</option>
+                    <option>Network</option>
+                    <option>Chromebook</option>
+                    <option>Other</option>
                 </select>
-            </form>
-            <!--faculty issues - add any extra needed information below-->
-            <form id="teacherlist">
-                <label for='teacherIssue'>issue:</label>
-                <select name='teacherIssue'id="teacherIssue"onchange='checkTeacherIssue()'>
-                    <!--add more options to select from dropdown box here-->
-                    <option value='printer'>Printer issues</option>
-                    <option value='projector'>Projector fix</option>
-                    <option value='other'>other issue:</option>
-                </select>
-                <br>
-                <input type='text' id='otherT' name='other'placeholder='other issue'class='input-box'>
-                <input type = 'text' id = 'roomnum' name = 'roomnum'placeholder='room number'class='input-box'>
-                <br>
-                <input type='text'id='teachername'name='teachername'placeholder='Teacher name'class='input-box'>
-                <button type="button" class='signup_submit'>Submit</button>
-
-            </form>
-            <!--student issues - add any extra needed information below -->
-            <form id='studentlist'>
-                <select name='studentIssue' id='studentIssue' onchange='checkStudentIssue()'>
-                    <option value = 'secbrowser'>issue with CAASPP or CAST testing secure browser</option>
-                    <option value='chromeboox'>chromebook issue</option>
-                    <option value='computer issue'>other computer issue</option>
-                    <option value='login'>google account log in issue(other than a lost password)</option>
-                    <option value='classroom'>google classroom issues</option>
-                    <option value='zoom'>zoom issues</option>
-                    <option value='other'>other issue:</option>
-                </select>
-                <input type='text' id='otherS' name='other'placeholder='other issue'class='input-box'>
-                <br>
-                <a href = 'https://docs.google.com/forms/d/e/1FAIpQLSeMzDSOPxqWtIkaYbQ_JQMmM-73us6h5dsPITCmaor-RDWQPA/viewform'>Password change/recovery request</a>
-                <br>
-                <input type ='text' id='semail'name='semail'class='input-box'placeholedr='student email'>
-                <br>
-                <button type="button" class='signup_submit'>Submit</button>
-            </form>
-            <!--script to open menus when either "teacher" or "student" is the selected role-->
-            <script>
-            document.getElementById('teacherlist').style.display = 'none';
-            document.getElementById('studentlist').style.display = 'none';
-            document.getElementById('otherT').style.display = 'none';
-            document.getElementById('otherS').style.display = 'none';
-            const roleSubmit = document.querySelector('.roletype');
-            function checkUserType()
-            {
-                var teacheror = document.getElementById("roles");
-                var teacherval = teacheror.value;
-                const teacherlist = document.querySelector('.teacherlist');
-                if(teacherval == 'teacher')
-                {
-                    document.getElementById('studentlist').style.display = 'none';
-                    document.getElementById('teacherlist').style.display = "block"; 
-                }
-                if(teacherval == 'student')
-                {
-                    document.getElementById('teacherlist').style.display = 'none';
-                    document.getElementById('studentlist').style.display = 'block';
-                }
-            }
-            function checkTeacherIssue()
-            {
-                var teacherIssueCheck = document.getElementById('teacherIssue');
-                var teacherIssueCheckVal = teacherIssueCheck.value;
-                if(teacherIssueCheckVal == "other")
-                {
-                    document.getElementById('otherT').style.display = 'block';
-                }
-            }
-            function checkStudentIssue()
-            {
-                var studentIssueCheck = document.getElementById('studentIssue');
-                var studentIssueCheckVal = studentIssueCheck.value;
-                if(studentIssueCheckVal == 'other')
-                {
-                    document.getElementById('otherS').style.display = 'block';
-                }
-            }
-            </script>
+                <textarea placeholder="Please Briefly Describe Your Issue"></textarea>
+                <button type ="buton">Submit</button>
         </div>
+        
             
+
+
+<!--Hide Input Number Arrows-->
+<style>
+    /* Chrome, Safari, Edge, Opera */
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+    
+    /* Firefox */
+    input[type=number] {
+        -moz-appearance: textfield;
+    }
+    </style>
+
+
+
+
 
         <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>

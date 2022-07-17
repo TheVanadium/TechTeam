@@ -27,6 +27,8 @@ body::-webkit-scrollbar-thumb:hover {
     display: flex;
     justify-content: space-between;
     padding: 0 50px;
+    position: sticky;
+    top: 0;
 }
 
 .logo_container{

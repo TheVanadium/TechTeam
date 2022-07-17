@@ -93,6 +93,11 @@
     position: relative;
 }
 
+.input-box:focus
+{
+    border: 3px solid #303030;
+}
+
 .input-box-no{
     animation: no 0.5s;
     border: 2px solid #ff0000;

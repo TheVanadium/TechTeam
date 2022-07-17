@@ -5,7 +5,9 @@ import {
     signInWithEmailAndPassword, 
     connectAuthEmulator,
     onAuthStateChanged,
-    createUserWithEmailAndPassword
+    createUserWithEmailAndPassword,
+    browserSessionPersistence,
+    setPersistence
 } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-auth.js";
 import { getFirestore} from "https://www.gstatic.com/firebasejs/9.4.0/firebase-firestore.js";
 
@@ -93,8 +95,6 @@ signupForm.addEventListener('submit', (e) =>{
         }, 10); 
         document.getElementById('signupPassword').classList.remove("input-box-no");
     }
-
-
 
 
 
@@ -186,6 +186,7 @@ loginForm.addEventListener('submit', (e) =>{
 
   })
 
+  
 
   .catch((error) => {
     setErrorFor('loginEmailMsg', "Invalid Email!")
@@ -201,6 +202,32 @@ loginForm.addEventListener('submit', (e) =>{
   });
     }
 })
+
+
+
+
+
+
+
+
+
+
+
+// firebase.auth().setPersistence('session')
+//   .then(() => {
+
+//     console.log("Already Sign In.");
+//     return signInWithEmailAndPassword(auth, email, password);
+    
+//   })
+//   .catch((error) => {
+//     // Handle Errors here.
+//     const errorCode = error.code;
+//     const errorMessage = error.message;
+//   });
+
+
+
 
 
 
