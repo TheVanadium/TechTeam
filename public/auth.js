@@ -77,7 +77,7 @@ signupForm.addEventListener('submit', (e) =>{
         }, 10); 
         document.getElementById('signupId').classList.remove("input-box-no");
     }
-      if(email=="")
+      if(email.trim()=="")
     {
       setErrorFor('signupEmailMsg', "Invalid Email Format!")
       tempToken++;
@@ -86,7 +86,7 @@ signupForm.addEventListener('submit', (e) =>{
         }, 10); 
         document.getElementById('signupEmail').classList.remove("input-box-no");
     }
-      if(password=="")
+      if(password.trim()=="")
     {
       setErrorFor('signupPasswordMsg', "At Least 12 Characters And Contains A Special Letter!");
       tempToken++;
@@ -144,7 +144,7 @@ loginForm.addEventListener('submit', (e) =>{
     
 
 
-      if(email=="")
+      if(email.trim()=="")
     {
       setErrorFor('loginEmailMsg', "Invalid Email!")
       tempToken++;
@@ -153,7 +153,7 @@ loginForm.addEventListener('submit', (e) =>{
         }, 10); 
         document.getElementById('loginEmail').classList.remove("input-box-no");
     }
-      if(password=="")
+      if(password.trim()=="")
     {
       setErrorFor('loginPasswordMsg', "Invalid Password!");
       tempToken++;

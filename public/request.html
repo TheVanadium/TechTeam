@@ -35,21 +35,31 @@
         
         <div class="requestForm">
             <div class="headerForm">
-                <h1>Request Form</h1>
+                <h1 id="header">Request Form</h1>
             </div>
-                <input type="text" class="input-box" placeholder="Please Enter Your Full Name" required autofocus/>
-                <input type="text" class="input-box" placeholder="If Submit For A Student Please Enter Their Full Name"/>
-                <input type="email" class="input-box" placeholder="Please Provide Student's Email Address" required/>
-                <input type="number" class="input-box" placeholder="Your Phone Number(Optional)"/>
-                <input type="number" class="input-box" placeholder="Room Number/Student Id" maxlength="6" required/>
-                <select>
-                    <option>Printer</option>
-                    <option>Network</option>
-                    <option>Chromebook</option>
-                    <option>Other</option>
+            <form id="form">
+                <h2>* -required</h2>
+                <h1 id="qst">Please Enter Your Full Name <ion-icon name="arrow-down-outline"></ion-icon></h1>
+                <input type="text" class="input-box" id="fullName" placeholder="Full Name*" autofocus/>
+
+                <h1 id="qst">If Submit For A Student Please Enter Their Full Name <ion-icon name="arrow-down-outline"></ion-icon></h1>
+                <input type="text" class="input-box" id="studentName" placeholder="Student's Full Name"/>
+
+                <h1 id="qst">Please Provide Student's Email Address <ion-icon name="arrow-down-outline"></ion-icon></h1>
+                <input type="email" class="input-box" id="email" placeholder="Student's Email Address*"/>
+                
+                <input type="text" class="input-box" id="phoneNumber" placeholder="Your Phone Number(Optional)"/>
+                <input type="text" class="input-box" id="id" placeholder="Room Number/Student Id*" maxlength="6"/>
+                <select id="option">
+                    <option value="Printer">Printer</option>
+                    <option value="Network">Network</option>
+                    <option value="Chromebook">Chromebook</option>
+                    <option value="Other">Other</option>
                 </select>
-                <textarea placeholder="Please Briefly Describe Your Issue"></textarea>
-                <button type ="buton">Submit</button>
+                <textarea id="textArea" placeholder="Please Briefly Describe Your Issue*"></textarea>
+                <h1 id="msg"></h1>
+                <button id="button" type ="buton">Submit</button>
+            </form> 
         </div>
         
             
@@ -76,5 +86,6 @@
 
         <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script type="module" src="data.js"></script>
     </body>
 </html>
