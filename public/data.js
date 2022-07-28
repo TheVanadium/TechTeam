@@ -85,15 +85,16 @@ const firebaseConfig = {
 
         if(tempToken==0)
         {
-            // addDoc(collection(db, "request"), {
-            //     fullName:fullName,
-            //     studentName:studentName,
-            //     email:email,
-            //     phoneNumber:phoneNumber,
-            //     id:id,
-            //     option:option,
-            //     description:textArea
-            // });
+            const users = collection(db, 'request');
+            setDoc(doc(users, fullName), {
+                fullName:fullName,
+                studentName:studentName,
+                email:email,
+                phoneNumber:phoneNumber,
+                id:id,
+                option:option,
+                description:textArea
+            });
             document.getElementById('studentName').classList.add("input-box-yes");
             document.getElementById('email').classList.add("input-box-yes");
             document.getElementById('phoneNumber').classList.add("input-box-yes");

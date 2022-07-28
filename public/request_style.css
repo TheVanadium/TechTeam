@@ -121,6 +121,7 @@ textarea {
     background-color: #dfe2e2;
     font-size: 16px;
     resize: none;
+    position: relative;
     }
 
     .requestForm #msg
