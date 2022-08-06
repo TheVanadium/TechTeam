@@ -2,23 +2,6 @@ body {
     background-color: #171717;
 }
 
-/*body::-webkit-scrollbar {*/
-/*    width: 0.6em;*/
-/*}*/
-
-/*body::-webkit-scrollbar-track {*/
-/*    margin-block-end: 5px;*/
-/*}*/
-
-/*body::-webkit-scrollbar-thumb {*/
-/*    background: #424242;*/
-/*    border-radius: 100px;*/
-/*}*/
-
-/*body::-webkit-scrollbar-thumb:hover {*/
-/*    background: #aaaaaa;*/
-/*}*/
-
 .tasks::-webkit-scrollbar {
     width: 0.6em;
 }
@@ -106,6 +89,10 @@ body {
     background-color: #fc3d03aa;
 }
 
+.c4 {
+    background-color: #8f8f8f;
+}
+
 .tasks {
     position: absolute;
     width: 62%;
@@ -116,6 +103,7 @@ body {
 }
 
 .tasks li {
+    user-select: none;
     list-style: none;
     height: 60px;
     line-height: 55px;
@@ -123,13 +111,25 @@ body {
     background-color: #8f8f8f;
     border-radius: 5px;
     margin-bottom: 8px;
-    padding: 0 15px;
     font-size: 2rem;
     overflow: hidden;
+    cursor: pointer;
+    width: 98%;
+    padding-left: 2%;
+}
+
+.tasks li span {
+    color: black;
 }
 
 .tasks li:hover #delete {
-    right: 0;
+    right: 0px;
+}
+
+.tags-read-more
+{
+    height: fit-content !important;
+    color: blueviolet;
 }
 
 #level {
