@@ -111,16 +111,16 @@ querySnapshot.forEach((doc) => {
     var id = doc.data().id;
     var fullName = doc.data().fullName;
     var studentName;
-    if(doc.data().studentName!="") {studentName=`<br/><span>Student name: </span>${doc.data().studentName},`;} else {studentName="";}
-    var email = `<br/><span>Email: </span>${doc.data().email},`;
+    if(doc.data().studentName!="") {studentName=`<br/><span>Student name: </span>${doc.data().studentName}`;} else {studentName="";}
+    var email = `<br/><span>Email: </span>${doc.data().email}`;
     var phoneNumber;
-    if(doc.data().phoneNumber!="") {phoneNumber=`<br/><span>Phone number: </span>${doc.data().phoneNumber},`;} else {phoneNumber="";}
+    if(doc.data().phoneNumber!="") {phoneNumber=`<br/><span>Phone number: </span>${doc.data().phoneNumber}`;} else {phoneNumber="";}
     var description = `<br/><span>Description: </span>${doc.data().description}`;
 
 
     
     let newListItem = document.createElement('li');
-    newListItem.innerHTML=`<li class="tags">${id}, ${fullName} 
+    newListItem.innerHTML=`<li class="tags">${id} ${fullName} 
     <span id=level>emergency</span><ion-icon name="trash-outline" id="delete"></ion-icon>
     ${studentName}
     ${email}
@@ -131,6 +131,7 @@ querySnapshot.forEach((doc) => {
         newListItem.addEventListener('click', function() 
         {
         this.classList.toggle('tags-read-more');
+        this.scrollIntoView({behavior:'smooth', block:'nearest'});
         }) 
         
     printerCats.appendChild(newListItem);
@@ -142,6 +143,7 @@ for(var i=0; i<list.length; i++)
 {
     list[i].addEventListener('click', function() {
         this.classList.toggle('tags-read-more');
+        this.scrollIntoView({behavior:'smooth', block:'nearest'});
 }) 
 }
 
@@ -160,36 +162,4 @@ inputBox.onkeyup = () =>{
     //if user click on the add button
     addBtn.onclick = () =>{
         let userData = inputBox.value; //getting user entered value
-        let getLocalStorage = localStorage.getItem("New Todo"); //getting localstorage
-        if(getLocalStorage == null){ //if localStorage is null
-            listArr = []; //creating blank array
-        }else{
-            listArr = JSON.parse(getLocalStorage);
-        }
-        listArr.push(userData);
-        localStorage.setItem("New Todo", JSON.stringify(listArr)); //transforming js object into a json string
-        showTasks(); //calling showTasks function
     }
-
-function showTasks(){
-    let getLocalStorage = localStorage.getItem("New Todo"); //getting localstorage
-    if(getLocalStorage == null){ //if localStorage is null
-        listArr = []; //creating blank array
-    }else{
-        listArr = JSON.parse(getLocalStorage);
-    }
-    let newLiTag = '';
-    listArr.array.forEach((element, index) => {
-        // newLiTag = `<li> ${element}<span onclick="deleteTask(${index})";><ion-icon name="trash-outline" id="delete"></ion-icon><li>`;
-        newLiTag = `<li>Testing<span id=level>emergcey level</span><ion-icon name="trash-outline" id="delete"></ion-icon></li>`
-    });
-    todoList.innerHTML = newLiTag; //adding new li tag inside ul tag
-}
-
-function deleteTask(){
-    let getLocalStorage = localStorage.getItem("New Todo");
-    listArr = JSON.parse(getLocalStorage);
-    listArr.splice(index,1);
-    localStorage.setItem("New Todo", JSON.stringify(listArr));
-    showTasks();
-}

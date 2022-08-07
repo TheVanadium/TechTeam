@@ -19,64 +19,6 @@ body {
     background: #aaaaaa;
 }
 
-.container {
-    position: relative;
-    max-width: 100%;
-    background-color: #171717;
-    height: auto;
-    padding: 30px;
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    gap: 40px;
-}
-
-.content {
-    position: relative;
-    font-size: 1.5rem;
-    transform: translateY(-40px);
-    display: flex;
-    justify-content: space-between;
-    padding: 10px;
-}
-
-.inputfield {
-    display: flex;
-    height: 60px;
-    width: 100%;
-    margin: 20px 11.5%;
-}
-
-.inputfield input {
-    outline: none;
-    font-size: 2rem;
-    width: 87%;
-    height: 100%;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    padding-left: 15px;
-}
-
-.inputfield button {
-    width: 80px;
-    height: 106%;
-    border: none;
-    outline: none;
-    background: #8e49e8;
-    color: #fff;
-    font-size: 60px;
-    cursor: pointer;
-    border-radius: 3px;
-    margin-left: 5px;
-    align-items: center;
-    opacity: 0.6;
-    pointer-events: none;
-}
-
-.inputfield button.active {
-    opacity: 1;
-    pointer-events: auto;
-}
-
 .c1 {
     background-color: #474747aa;
 }
@@ -93,13 +35,79 @@ body {
     background-color: #8f8f8f;
 }
 
+.container {
+    position: relative;
+    max-width: 100%;
+    background-color: #171717;
+    height: auto;
+    padding: 30px;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 40px;
+}
+
+#cats {
+    display: flex;
+    flex-flow: column;
+    padding: 0 20px;
+    height: 600px;
+    width: auto;
+    border-radius: 25px;
+}
+
+.content {
+    position: relative;
+    font-size: 2rem;
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+}
+
+.inputfield {
+    display: flex;
+    justify-content: space-around;
+    height: 60px;
+    width: 70%;
+}
+
+.inputfield input {
+    outline: none;
+    font-size: 2rem;
+    width: 87%;
+    height: 100%;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    padding-left: 1%;
+}
+
+.inputfield button {
+    width: auto;
+    height: 106%;
+    border: none;
+    outline: none;
+    background: #8e49e8;
+    color: #fff;
+    font-size: 60px;
+    cursor: pointer;
+    border-radius: 3px;
+    align-items: center;
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.inputfield button.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
 .tasks {
-    position: absolute;
-    width: 62%;
-    height: 70%;
+    position: relative;
+    margin-top: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    height: fit-content;
     overflow: auto;
-    top: 25%;
-    right: 15%;
 }
 
 .tasks li {
@@ -114,12 +122,12 @@ body {
     font-size: 2rem;
     overflow: hidden;
     cursor: pointer;
-    width: 98%;
-    padding-left: 2%;
+    width: 99%;
+    padding-left: 1%;
 }
 
 .tasks li span {
-    color: black;
+    font-weight: bold;
 }
 
 .tasks li:hover #delete {
@@ -128,8 +136,8 @@ body {
 
 .tags-read-more
 {
+    background-color: #a1a1a1 !important;
     height: fit-content !important;
-    color: blueviolet;
 }
 
 #level {
@@ -148,18 +156,9 @@ body {
     transition: all 0.3s ease-in-out;
 }
 
-#cats {
-    padding: 20px;
-    height: 300px;
-    max-width: 97%;
-    box-shadow: 0 0 3px rgba(0, 0, 0, 1);
-    border-radius: 25px;
-    position: relative;
-}
-
 #background {
     position: absolute;
     font-size: 300px;
-    color: rgb(255, 255, 255);
+    color: #ffffff;
     opacity: 50%;
 }
