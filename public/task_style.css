@@ -46,6 +46,73 @@ body {
     gap: 40px;
 }
 
+#deleteMsgWrapper {
+    position: absolute;
+    opacity: 0.5;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    background-color: #8f8f8f;
+}
+
+#deleteMsg {
+    position: fixed;
+    z-index: -1;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 70%;
+    height: 50%;
+    background-color: #aaaaaa;
+    border-style: dashed;
+    border-width: 5px;
+    border-color: #ff0000;
+}
+
+#deleteMsg h1 {
+    text-align: center;
+    font-size: 3rem;
+}
+
+#deleteMsg h1 span {
+    text-align: center;
+    font-size: 4rem;
+    font-weight: bolder;
+}
+
+#deleteMsg input {
+    position: absolute;
+    user-select: none;
+    font-size: 3rem;
+    height: 20%;
+    width: 90%;
+    left: 50%;
+    bottom: 30%;
+    transform: translate(-50%);
+    padding-left: 2%;
+    outline: none;
+    border: none;
+}
+
+#deleteMsg button {
+    position: absolute;
+    font-size: 3.5rem;
+    left: 50%;
+    bottom: 5%;
+    transform: translate(-50%);
+    background-color: transparent;
+    border: none;
+    color: #ff0000;
+    transition: 0.3s ease-in-out;
+}
+
+#deleteMsg button:hover {
+    cursor: pointer;
+    font-size: 3rem;
+    transition: 0.3s ease-in-out;
+    color: #ca0000;
+}
+
 #cats {
     display: flex;
     flex-flow: column;
@@ -103,8 +170,8 @@ body {
 .tasks {
     position: relative;
     margin-top: 0px;
-    margin-left: auto;
     margin-right: auto;
+    margin-left: auto;
     width: 80%;
     height: fit-content;
     overflow: auto;
@@ -130,7 +197,29 @@ body {
     font-weight: bold;
 }
 
-.tasks li:hover #delete {
+#delete, #assign{
+    position: absolute;
+    right: -60px;
+    top: 0px;
+    background-color: #d80000;
+    color: #ffffff;
+    font-size: 60px;
+    border-radius: 0 3px 3px 0;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+#assign{
+    background-color: #ffb300;
+    opacity: 0;
+    z-index: -1;
+}
+
+.tasks li:hover #delete{
+    right: 0px;
+}
+
+.tasks li:hover #assign {
     right: 0px;
 }
 
@@ -140,20 +229,18 @@ body {
     height: fit-content !important;
 }
 
-#level {
-    color: red;
+.tags-read-more #assign{
+    z-index: 1 !important;
+    opacity: 1;
 }
 
-#delete {
-    position: absolute;
-    right: -60px;
-    top: 0px;
-    background-color: rgb(216, 0, 0);
-    color: #ffffff;
-    font-size: 60px;
-    border-radius: 0 3px 3px 0;
-    cursor: pointer;
-    transition: all 0.3s ease-in-out;
+.tags-read-more #delete{
+    opacity: 0;
+    z-index: -1 !important;
+}
+
+#level {
+    color: red;
 }
 
 #background {

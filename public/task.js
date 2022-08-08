@@ -101,6 +101,7 @@ const printerRequest = query(allRequests, where('option', '==', 'Printer'));
 const otherRequest = query(allRequests, where('option', '==', 'Other'));
 const chromeRequest = query(allRequests, where('option', '==', 'Chrome'));
 const printerCats = document.getElementById('c1Tasks');
+const deleteMsg = document.querySelector('.deleteMsg');
 
 
 
@@ -119,9 +120,10 @@ querySnapshot.forEach((doc) => {
 
 
     
+    //construct & add li tag
     let newListItem = document.createElement('li');
-    newListItem.innerHTML=`<li class="tags">${id} ${fullName} 
-    <span id=level>emergency</span><ion-icon name="trash-outline" id="delete"></ion-icon>
+    newListItem.innerHTML=`<li class="tags"><span id=level>emergencey level</span> <span id=id>${id}</span> ${fullName} 
+    <ion-icon name="hand-right-outline" id="assign"></ion-icon><ion-icon name="trash-outline" id="delete"></ion-icon>
     ${studentName}
     ${email}
     ${phoneNumber}
@@ -132,8 +134,8 @@ querySnapshot.forEach((doc) => {
         {
         this.classList.toggle('tags-read-more');
         this.scrollIntoView({behavior:'smooth', block:'nearest'});
-        }) 
-        
+        })
+
     printerCats.appendChild(newListItem);
 })
 
@@ -141,10 +143,50 @@ querySnapshot.forEach((doc) => {
 
 for(var i=0; i<list.length; i++)
 {
-    list[i].addEventListener('click', function() {
+    list[i].addEventListener('click', function() 
+    {
         this.classList.toggle('tags-read-more');
         this.scrollIntoView({behavior:'smooth', block:'nearest'});
-}) 
+    }) 
+
+console.log(list[i].childNodes);
+    //assign
+    list[i].querySelector('#assign').addEventListener('click', function (e) 
+    {
+        e.stopPropagation();
+        console.log("assign");
+    })
+
+    //delete
+    list[i].querySelector('#delete').addEventListener('click', function (e) 
+    {
+        e.stopPropagation();
+        let deleteMsgWrapper = document.getElementById('deleteMsgWrapper');
+        let deleteMsg = document.getElementById('deleteMsg');
+
+        //show the delete msg prompt
+        deleteMsgWrapper.style.zIndex=1;
+        deleteMsg.style.zIndex=1;
+
+        //customize h1 tag
+        deleteMsg.querySelector('h1').innerHTML=`Do you really want to delete <br/><span>${this.parentNode.querySelector('#id').innerHTML}</span>?`;
+        
+        //focus input
+        deleteMsg.querySelector('input').focus();
+        deleteMsg.querySelector('input').addEventListener('submit', function (e) {
+            e.preventDefault();
+            console.log('suces');
+            console.log(deleteMsg.querySelector('input').innerHTML);
+        })
+
+        //cancle button
+        deleteMsg.querySelector('button').addEventListener('click', function (e) 
+        {
+            deleteMsgWrapper.style.zIndex=-1;
+            deleteMsg.style.zIndex=-1;
+        })
+        console.log("trash");
+    })
 }
 
     
