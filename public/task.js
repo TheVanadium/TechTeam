@@ -19,7 +19,8 @@ import {
     onSnapshot,
     setDoc,
     query,
-    where
+    where,
+    deleteDoc 
 } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-firestore.js";
 
 
@@ -99,45 +100,58 @@ const list = document.getElementsByClassName('tags');
 const networkRequest = query(allRequests, where('option', '==', 'Network'));
 const printerRequest = query(allRequests, where('option', '==', 'Printer'));
 const otherRequest = query(allRequests, where('option', '==', 'Other'));
-const chromeRequest = query(allRequests, where('option', '==', 'Chrome'));
-const printerCats = document.getElementById('c1Tasks');
-const deleteMsg = document.querySelector('.deleteMsg');
+const chromeRequest = query(allRequests, where('option', '==', 'Chromebook'));
 
 
 
-
-const querySnapshot = await getDocs(printerRequest);
-querySnapshot.forEach((doc) => {
-
-    var id = doc.data().id;
-    var fullName = doc.data().fullName;
-    var studentName;
-    if(doc.data().studentName!="") {studentName=`<br/><span>Student name: </span>${doc.data().studentName}`;} else {studentName="";}
-    var email = `<br/><span>Email: </span>${doc.data().email}`;
-    var phoneNumber;
-    if(doc.data().phoneNumber!="") {phoneNumber=`<br/><span>Phone number: </span>${doc.data().phoneNumber}`;} else {phoneNumber="";}
-    var description = `<br/><span>Description: </span>${doc.data().description}`;
+//declare temp as a global variable(outside of any function)
+let temp; //temp = deleteMsg input
 
 
+//adding li tags from database for printerRequest
+constructTask(await getDocs(printerRequest), document.getElementById('c1Tasks'));
+constructTask(await getDocs(networkRequest), document.getElementById('c2Tasks'));
+constructTask(await getDocs(chromeRequest), document.getElementById('c3Tasks'));
+constructTask(await getDocs(otherRequest), document.getElementById('c4Tasks'));
+
+
+
+//function that construct and append task li
+function constructTask(requests, tasks) {
+    requests.forEach((doc) => {
+
+        var id = doc.data().id;
+        var fullName = doc.data().fullName;
+        var studentName;
+        if(doc.data().studentName!="") {studentName=`<br/><span>Student name: </span>${doc.data().studentName}`;} else {studentName="";}
+        var email = `<br/><span>Email: </span>${doc.data().email}`;
+        var phoneNumber;
+        if(doc.data().phoneNumber!="") {phoneNumber=`<br/><span>Phone number: </span>${doc.data().phoneNumber}`;} else {phoneNumber="";}
+        var description = `<br/><span>Description: </span>${doc.data().description}`;
     
-    //construct & add li tag
-    let newListItem = document.createElement('li');
-    newListItem.innerHTML=`<li class="tags"><span id=level>emergencey level</span> <span id=id>${id}</span> ${fullName} 
-    <ion-icon name="hand-right-outline" id="assign"></ion-icon><ion-icon name="trash-outline" id="delete"></ion-icon>
-    ${studentName}
-    ${email}
-    ${phoneNumber}
-    ${description}
-    </li>`;
+    
+        
+        //construct & add li tag
+        let newListItem = document.createElement('li');
+        newListItem.innerHTML=`<li class="tags"><ion-icon name="ellipse" id=level></ion-icon> <span id=id>${id}</span> ${fullName} 
+        <ion-icon name="hand-right-outline" id="assign"></ion-icon><ion-icon name="trash-outline" id="delete"></ion-icon>
+        ${studentName}
+        ${email}
+        ${phoneNumber}
+        ${description}
+        </li>`;
+    
+            newListItem.addEventListener('click', function() 
+            {
+            this.classList.toggle('tags-read-more');
+            this.scrollIntoView({behavior:'smooth', block:'nearest'});
+            })
+    
+        tasks.appendChild(newListItem);
+    })
+}
 
-        newListItem.addEventListener('click', function() 
-        {
-        this.classList.toggle('tags-read-more');
-        this.scrollIntoView({behavior:'smooth', block:'nearest'});
-        })
 
-    printerCats.appendChild(newListItem);
-})
 
 
 
@@ -149,35 +163,34 @@ for(var i=0; i<list.length; i++)
         this.scrollIntoView({behavior:'smooth', block:'nearest'});
     }) 
 
-console.log(list[i].childNodes);
-    //assign
+
+    //assign button
     list[i].querySelector('#assign').addEventListener('click', function (e) 
     {
         e.stopPropagation();
         console.log("assign");
     })
 
-    //delete
+
+
+    //delete button
     list[i].querySelector('#delete').addEventListener('click', function (e) 
     {
         e.stopPropagation();
         let deleteMsgWrapper = document.getElementById('deleteMsgWrapper');
         let deleteMsg = document.getElementById('deleteMsg');
+        temp = this.parentNode.querySelector('#id').innerHTML;
 
         //show the delete msg prompt
         deleteMsgWrapper.style.zIndex=1;
         deleteMsg.style.zIndex=1;
 
         //customize h1 tag
-        deleteMsg.querySelector('h1').innerHTML=`Do you really want to delete <br/><span>${this.parentNode.querySelector('#id').innerHTML}</span>?`;
+        deleteMsg.querySelector('h1').innerHTML=`Do you really want to delete <br/>"<span>${this.parentNode.querySelector('#id').innerHTML}</span>" ?`;
         
         //focus input
         deleteMsg.querySelector('input').focus();
-        deleteMsg.querySelector('input').addEventListener('submit', function (e) {
-            e.preventDefault();
-            console.log('suces');
-            console.log(deleteMsg.querySelector('input').innerHTML);
-        })
+        // submit eventlistener only works in <form>
 
         //cancle button
         deleteMsg.querySelector('button').addEventListener('click', function (e) 
@@ -189,8 +202,35 @@ console.log(list[i].childNodes);
     })
 }
 
+//delete a task li
+deleteMsg.querySelector('form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    if(deleteMsg.querySelector('input').value!=temp)
+    {
+        deleteMsg.querySelector('input').classList.remove('yes');
+        setTimeout(function(){
+            deleteMsg.querySelector('input').classList.add('no');
+            }, 10); 
+            deleteMsg.querySelector('input').classList.remove('no');
+    }
+    else
+    {
+        deleteMsg.querySelector('input').classList.remove('no');
+        setTimeout(function(){
+            deleteMsg.querySelector('input').classList.add('yes');
+            }, 10); 
+            deleteMsg.querySelector('input').classList.remove('yes');
+        deleteDoc(doc(allRequests, temp));
+
+        setTimeout(function(){
+            location.reload();
+            }, 1000); 
+    }
+})
     
 
+
+/*
 //detects input
 inputBox.onkeyup = () =>{
     let userData = inputBox.value; //getting user entered value
@@ -205,3 +245,5 @@ inputBox.onkeyup = () =>{
     addBtn.onclick = () =>{
         let userData = inputBox.value; //getting user entered value
     }
+
+    */

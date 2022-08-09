@@ -86,7 +86,7 @@ const firebaseConfig = {
         if(tempToken==0)
         {
             const users = collection(db, 'request');
-            setDoc(doc(users, fullName), {
+            setDoc(doc(users, id), {
                 fullName:fullName,
                 studentName:studentName,
                 email:email,
