@@ -1,5 +1,6 @@
 body{
     margin: 0;
+    user-select: none;
 }
 
 body::-webkit-scrollbar {
@@ -30,6 +31,7 @@ body::-webkit-scrollbar-thumb:hover {
     position: sticky;
     top: 0;
     z-index: 3;
+    user-select: none;
 }
 
 .logo_container{

@@ -1,5 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-app.js";
+
 import { 
     getAuth, 
     signInWithEmailAndPassword, 
@@ -9,7 +10,14 @@ import {
     browserSessionPersistence,
     setPersistence
 } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-auth.js";
-import { getFirestore} from "https://www.gstatic.com/firebasejs/9.4.0/firebase-firestore.js";
+
+import { 
+        getFirestore,
+        collection, 
+        addDoc,
+        doc,
+        setDoc
+} from "https://www.gstatic.com/firebasejs/9.4.0/firebase-firestore.js";
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -35,7 +43,8 @@ const user = auth.currentUser;
 
 
 
-// connectAuthEmulator(auth, "http://localhost:9099");
+
+
 
 
 
@@ -99,6 +108,21 @@ signupForm.addEventListener('submit', (e) =>{
 
 
     if(tempToken==0){
+
+
+      const users = collection(db, 'users');
+      setDoc(doc(users, email), 
+      {
+        name: "user",
+        id: "000000",
+        email: email,
+        password: password
+      });
+
+
+      
+
+
         createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
             // Signed in 
