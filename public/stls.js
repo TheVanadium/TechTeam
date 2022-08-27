@@ -48,16 +48,12 @@ const user = auth.currentUser;
 
 
 
+check();
 
 
 
 
 
-//set error message function
-function setErrorFor(input, message)
-{
-  document.getElementById(input).innerHTML = message;
-}
 
 
 
@@ -233,32 +229,6 @@ loginForm.addEventListener('submit', (e) =>{
 
 
 
-
-
-
-
-// firebase.auth().setPersistence('session')
-//   .then(() => {
-
-//     console.log("Already Sign In.");
-//     return signInWithEmailAndPassword(auth, email, password);
-    
-//   })
-//   .catch((error) => {
-//     // Handle Errors here.
-//     const errorCode = error.code;
-//     const errorMessage = error.message;
-//   });
-
-
-
-
-
-
-
-
-
-
 //Set an authentication state observer and get user data For each of your app's pages that 
 //need information about the signed-in user, attach an observer to the global authentication 
 //object. This observer gets called whenever the user's sign-in state changes. Attach the 
@@ -309,4 +279,35 @@ export const showLoginError = (error) => {
     else{
         lblLoginErrorMessage.innerHTML = 'Error: ${error.message}';
     }
+}
+
+
+//set error message function
+function setErrorFor(input, message)
+{
+  document.getElementById(input).innerHTML = message;
+}
+
+
+//Check box, remember me
+function check()
+{
+  let checkBox = document.querySelector('.check-box');
+checkBox.addEventListener('change', function() {
+  if(checkBox.checked==true)
+  {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        console.log(user);
+        // setTimeout(function(){
+        //   location.href="task.html";
+        //   }, 1000);
+      } else {
+        // User is signed out
+        // ...
+        console.log(user);
+      }
+    });
+  }
+})
 }

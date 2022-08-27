@@ -4,7 +4,12 @@ import { getFirestore,
         collection, 
         addDoc,
         doc,
-        setDoc
+        setDoc,
+        getDocs,
+        getDoc,
+        query,
+        where,
+        updateDoc
 } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-firestore.js";
 
 import { 
@@ -35,20 +40,26 @@ const firebaseConfig = {
     const db = getFirestore(app);
     const auth = getAuth(app);
     const user = auth.currentUser;
-    const users = collection(db, 'users');
+    const users = collection(db, "users");
+    const allUsers = await getDocs(users);
 
 
-    
+
+
+
     auth.onAuthStateChanged(function(user) {
         if (user) {
+            const q = query(allUsers, where('email', '==', user.email));
             setProfile(user);
-          // User is signed in.
         } else {
-          // No user is signed in.
             location.href="stls.html";
         }
         });
 
+
+    
+    
+    
 
 
 
@@ -59,13 +70,27 @@ const firebaseConfig = {
     
     function setProfile(user)
     {
+
+        let userName;
+        let userId;
+        allUsers.forEach((doc) => 
+            {
+                if(doc.id==user.email)
+                    {
+                        userName=doc.data().name;
+                        userId=doc.data().id;
+                    }
+            });
+
+
+
         let name = document.getElementById('name');
         let id = document.getElementById('id');
         let create = document.querySelectorAll('#create');
         let check = document.querySelectorAll('#check');
 
-        name.setAttribute('value', 'Enter Name');
-        id.setAttribute('value', 'Enter Id');
+        name.setAttribute('value', userName);
+        id.setAttribute('value', userId);
 
 
 
@@ -76,6 +101,20 @@ const firebaseConfig = {
                 this.parentNode.querySelector('input').disabled = false;
             })
             check[i].addEventListener('click', function() {
+                if(this.parentNode.querySelector('input').id=="name")
+                {
+                    const val = this.parentNode.querySelector('input').value;
+                    allUsers.forEach((doc) => 
+                    {
+                        if(doc.id==user.email)
+                        {
+                            setDoc(doc(db, 'users', user.email), {
+                                name: val
+                            });
+                        }
+                    });
+                }
+                console.log(this.parentNode.querySelector('input'));
                 this.parentElement.classList.remove('edit');
                 this.parentNode.querySelector('input').disabled = true;
             })
