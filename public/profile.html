@@ -51,10 +51,14 @@
 
         <div class="controlBody">
             <div class="innerBody" id="account">
-                <img src="imgs/1.jpg">
+                <div class="imgDiv">
+                    <img src="imgs/1.jpg">
+                    <label for="file"><ion-icon name="image"></ion-icon></label>
+                    <input type="file" id="file" accept="image/*">
+                </div>
                 <form>
                     <h1>Name:</h1><div id="flex"><input id="name" type="text" disabled><ion-icon name="checkmark-sharp" id="check"></ion-icon><ion-icon name="create" id="create"></ion-icon></div>
-                    <h1>Student Id:</h1><div id="flex"><input id="id" type="text" disabled><ion-icon name="checkmark-sharp" id="check"></ion-icon><ion-icon name="create" id="create"></ion-icon></div>
+                    <h1>Student Id:</h1><div id="flex"><input id="id" type="text" maxlength="6" disabled><ion-icon name="checkmark-sharp" id="check"></ion-icon><ion-icon name="create" id="create"></ion-icon></div>
                 </form>
                 <hr/>
             </div>

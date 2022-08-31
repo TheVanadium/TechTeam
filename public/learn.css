@@ -1,5 +1,5 @@
 body {
-    background-color: #171717;
+    background-color: #555555;
 }
 
 .cards {
@@ -13,66 +13,17 @@ body {
 }
 
 .card {
+    position: relative;
+    height: 470px;
     border-width: 6px;
     border-style: inset;
     border-color: grey;
-    /*animation: backglow 2s ease-in-out infinite alternate;*/
-}
-
-@keyframes backglow {
-    0% {
-        border-image: linear-gradient(
-            45deg,
-            red,
-            #a24dff,
-            #0051ff,
-            #8c8c8c,
-            purple,
-            yellow,
-            blue,
-            cyan,
-            grey
-        );
-        border-image-slice: 1;
-    }
-
-    50% {
-        border-image: linear-gradient(
-            -45deg,
-            red,
-            #a24dff,
-            #0051ff,
-            #8c8c8c,
-            purple,
-            yellow,
-            blue,
-            cyan,
-            grey
-        );
-        border-image-slice: 1;
-    }
-
-    100% {
-        border-image: linear-gradient(
-            45deg,
-            red,
-            #a24dff,
-            #0051ff,
-            #8c8c8c,
-            purple,
-            yellow,
-            blue,
-            cyan,
-            grey
-        );
-        border-image-slice: 1;
-    }
+    /* animation: backglow 2s ease-in-out infinite alternate; */
 }
 
 .card__image {
     width: 100%;
-    height: 53%;
-    display: block;
+    height: 50%;
     box-shadow: 0 0 1px black;
 }
 
@@ -81,7 +32,7 @@ body {
     font-size: 0.9rem;
     padding: 15px;
     background: #eeeeee;
-    height: 150px;
+    height: 155px;
     overflow-y: scroll;
     box-shadow: 0 0 1px black;
 }
@@ -138,4 +89,54 @@ body {
 .card__link:hover {
     text-decoration: underline;
     color: #4bbfcc;
+}
+
+@keyframes backglow {
+    0% {
+        border-image: linear-gradient(
+            45deg,
+            red,
+            #a24dff,
+            #0051ff,
+            #8c8c8c,
+            purple,
+            yellow,
+            blue,
+            cyan,
+            grey
+        );
+        border-image-slice: 1;
+    }
+
+    50% {
+        border-image: linear-gradient(
+            -45deg,
+            red,
+            #a24dff,
+            #0051ff,
+            #8c8c8c,
+            purple,
+            yellow,
+            blue,
+            cyan,
+            grey
+        );
+        border-image-slice: 1;
+    }
+
+    100% {
+        border-image: linear-gradient(
+            45deg,
+            red,
+            #a24dff,
+            #0051ff,
+            #8c8c8c,
+            purple,
+            yellow,
+            blue,
+            cyan,
+            grey
+        );
+        border-image-slice: 1;
+    }
 }

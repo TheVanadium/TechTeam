@@ -298,14 +298,10 @@ checkBox.addEventListener('change', function() {
   {
     onAuthStateChanged(auth, (user) => {
       if (user) {
-        console.log(user);
-        // setTimeout(function(){
-        //   location.href="task.html";
-        //   }, 1000);
+          location.href="task.html";
       } else {
         // User is signed out
         // ...
-        console.log(user);
       }
     });
   }

@@ -51,7 +51,21 @@ const allRequests = collection(db, 'request');
 
 
 
-console.log(user);
+onAuthStateChanged(auth, (user) => {
+    if (user) {
+        constructAll();
+    } else {
+        location.href="task.html";
+    }
+})
+
+async function constructAll()
+{
+    constructTask(await getDocs(printerRequest), document.getElementById('c1Tasks'));
+    constructTask(await getDocs(networkRequest), document.getElementById('c2Tasks'));
+    constructTask(await getDocs(chromeRequest), document.getElementById('c3Tasks'));
+    constructTask(await getDocs(otherRequest), document.getElementById('c4Tasks'));
+}
 
 
 
@@ -75,15 +89,10 @@ let temp; //temp = deleteMsg input
 
 
 //adding li tags from database for printerRequest
-constructTask(await getDocs(printerRequest), document.getElementById('c1Tasks'));
-constructTask(await getDocs(networkRequest), document.getElementById('c2Tasks'));
-constructTask(await getDocs(chromeRequest), document.getElementById('c3Tasks'));
-constructTask(await getDocs(otherRequest), document.getElementById('c4Tasks'));
-
 
 
 //function that construct and append task li
-function constructTask(requests, tasks) {
+async function constructTask(requests, tasks) {
     requests.forEach((doc) => {
 
         var id = doc.data().id;

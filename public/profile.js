@@ -40,8 +40,6 @@ const firebaseConfig = {
     const db = getFirestore(app);
     const auth = getAuth(app);
     const user = auth.currentUser;
-    const users = collection(db, "users");
-    const allUsers = await getDocs(users);
 
 
 
@@ -49,8 +47,7 @@ const firebaseConfig = {
 
     auth.onAuthStateChanged(function(user) {
         if (user) {
-            const q = query(allUsers, where('email', '==', user.email));
-            setProfile(user);
+            setProfile(user, user.email);
         } else {
             location.href="stls.html";
         }
@@ -58,65 +55,75 @@ const firebaseConfig = {
 
 
     
+
+
+
+
+
+
+
+
+
     
-    
-
-
-
-
-
-
-
-    
-    function setProfile(user)
+    async function setProfile(user, email)
     {
-
-        let userName;
-        let userId;
-        allUsers.forEach((doc) => 
-            {
-                if(doc.id==user.email)
-                    {
-                        userName=doc.data().name;
-                        userId=doc.data().id;
-                    }
-            });
-
-
-
+        //get all elements
         let name = document.getElementById('name');
         let id = document.getElementById('id');
         let create = document.querySelectorAll('#create');
         let check = document.querySelectorAll('#check');
+        let img = document.querySelector('img');
 
-        name.setAttribute('value', userName);
-        id.setAttribute('value', userId);
+
+
+
+        //query user's data based on email
+        const q = query(collection(db, "users"), where('email', '==', email));
+        const querySnapshot = await getDocs(q);
+        querySnapshot.forEach((doc) => {
+            name.setAttribute('value', doc.data().name);
+            id.setAttribute('value', doc.data().id);
+            });
+
+
+
+
 
 
 
         for(let i=0; i<create.length; i++)
         {
             create[i].addEventListener('click', function() {
+                this.parentNode.querySelector('input').style.pointerEvents="auto";
                 this.parentElement.classList.add('edit');
                 this.parentNode.querySelector('input').disabled = false;
             })
+
             check[i].addEventListener('click', function() {
                 if(this.parentNode.querySelector('input').id=="name")
                 {
                     const val = this.parentNode.querySelector('input').value;
-                    allUsers.forEach((doc) => 
-                    {
-                        if(doc.id==user.email)
-                        {
-                            setDoc(doc(db, 'users', user.email), {
-                                name: val
-                            });
-                        }
-                    });
+                    updateDoc(doc(db, "users", email), { 
+                        name:val
+                    })
                 }
-                console.log(this.parentNode.querySelector('input'));
+
+                else if(this.parentNode.querySelector('input').id=="id")
+                {
+                    const val = this.parentNode.querySelector('input').value;
+                    updateDoc(doc(db, "users", email), { 
+                        id:val
+                    })
+                }
                 this.parentElement.classList.remove('edit');
                 this.parentNode.querySelector('input').disabled = true;
+                this.parentNode.querySelector('input').style.pointerEvents="none";
             })
         }
+
+
+
+        img.addEventListener('click', function() {
+            img.classList.toggle('labelHome');
+        })
     }
