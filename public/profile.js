@@ -19,8 +19,16 @@ import {
     onAuthStateChanged,
     createUserWithEmailAndPassword,
     browserSessionPersistence,
-    setPersistence
+    setPersistence,
+    signOut
 } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-auth.js";
+
+import { 
+    getStorage, 
+    ref,
+    uploadBytesResumable,
+    getDownloadURL
+} from "https://www.gstatic.com/firebasejs/9.4.0/firebase-storage.js";
 
 
 
@@ -40,6 +48,7 @@ const firebaseConfig = {
     const db = getFirestore(app);
     const auth = getAuth(app);
     const user = auth.currentUser;
+    const storage = getStorage();
 
 
 
@@ -73,6 +82,7 @@ const firebaseConfig = {
         let create = document.querySelectorAll('#create');
         let check = document.querySelectorAll('#check');
         let img = document.querySelector('img');
+        let fileInput = document.querySelector('#file');
 
 
 
@@ -125,5 +135,23 @@ const firebaseConfig = {
 
         img.addEventListener('click', function() {
             img.classList.toggle('labelHome');
+        })
+
+
+        fileInput.onchange = () => {
+            const selectedFile = fileInput.files[0];
+            console.log(selectedFile);
+        }
+
+
+
+        //sign out
+        const out = document.querySelector('#out');
+        out.addEventListener('click', function() {
+        signOut(auth).then(() => {
+        // Sign-out successful.
+        }).catch((error) => {
+        // An error happened.
+        });
         })
     }

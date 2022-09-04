@@ -48,10 +48,16 @@ const user = auth.currentUser;
 
 
 
-check();
 
 
-
+auth.onAuthStateChanged(function(user) {
+  if (user) {
+        location.href="task.html";
+  } else {
+      signUp();
+      login();
+  }
+  });
 
 
 
@@ -63,86 +69,89 @@ check();
 
 
     //sign up
-var signupForm = document.querySelector('#register');
-signupForm.addEventListener('submit', (e) =>{
-  
-    //get user info
-    const id = signupForm['signupId'].value.trim(); //!!! trim()
-    const email = signupForm['signupEmail'].value;
-    const password = signupForm['signupPassword'].value;
-    var tempToken = 0;
-    
-
-      if(id.substr(0,4)!="1306")
+    function signUp()
     {
-      setErrorFor('signupIdMsg', "Invalid User Id!!!!");
-      tempToken++;
-      setTimeout(function(){
-        document.getElementById('signupId').classList.add("input-box-no");
-        }, 10); 
-        document.getElementById('signupId').classList.remove("input-box-no");
-    }
-      if(email.trim()=="")
-    {
-      setErrorFor('signupEmailMsg', "Invalid Email Format!")
-      tempToken++;
-      setTimeout(function(){
-        document.getElementById('signupEmail').classList.add("input-box-no");
-        }, 10); 
-        document.getElementById('signupEmail').classList.remove("input-box-no");
-    }
-      if(password.trim()=="")
-    {
-      setErrorFor('signupPasswordMsg', "At Least 12 Characters And Contains A Special Letter!");
-      tempToken++;
-      setTimeout(function(){
-        document.getElementById('signupPassword').classList.add("input-box-no");
-        }, 10); 
-        document.getElementById('signupPassword').classList.remove("input-box-no");
-    }
-
-
-
-    if(tempToken==0){
-
-
-      const users = collection(db, 'users');
-      setDoc(doc(users, email), 
-      {
-        name: "user",
-        id: "000000",
-        email: email,
-        password: password
-      });
-
-
+      var signupForm = document.querySelector('#register');
+      signupForm.addEventListener('submit', (e) =>{
       
-
-
-        createUserWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
-            // Signed in 
-            const user = userCredential.user;
-            console.log("User signed up!")
-
-            document.getElementById('signupId').classList.add("input-box-yes");
-            document.getElementById('signupEmail').classList.add("input-box-yes");
-            document.getElementById('signupPassword').classList.add("input-box-yes");
-            setErrorFor('signupIdMsg', "");
-            setErrorFor('signupEmailMsg', "");
-            setErrorFor('signupPasswordMsg', "");
-
-            setTimeout(function(){
-              location.reload();
-              }, 1000); 
-            })
-        .catch((error) => {
-            console.log(error);
-        });
-    } 
-    e.preventDefault();
-})
-
+        //get user info
+        const id = signupForm['signupId'].value.trim(); //!!! trim()
+        const email = signupForm['signupEmail'].value;
+        const password = signupForm['signupPassword'].value;
+        var tempToken = 0;
+        
+    
+          if(id.substr(0,4)!="1306")
+        {
+          setErrorFor('signupIdMsg', "Invalid User Id!!!!");
+          tempToken++;
+          setTimeout(function(){
+            document.getElementById('signupId').classList.add("input-box-no");
+            }, 10); 
+            document.getElementById('signupId').classList.remove("input-box-no");
+        }
+          if(email.trim()=="")
+        {
+          setErrorFor('signupEmailMsg', "Invalid Email Format!")
+          tempToken++;
+          setTimeout(function(){
+            document.getElementById('signupEmail').classList.add("input-box-no");
+            }, 10); 
+            document.getElementById('signupEmail').classList.remove("input-box-no");
+        }
+          if(password.trim()=="")
+        {
+          setErrorFor('signupPasswordMsg', "At Least 12 Characters And Contains A Special Letter!");
+          tempToken++;
+          setTimeout(function(){
+            document.getElementById('signupPassword').classList.add("input-box-no");
+            }, 10); 
+            document.getElementById('signupPassword').classList.remove("input-box-no");
+        }
+    
+    
+    
+        if(tempToken==0){
+    
+    
+          const users = collection(db, 'users');
+          setDoc(doc(users, email), 
+          {
+            name: "user",
+            id: "000000",
+            email: email,
+            password: password
+          });
+    
+    
+          
+    
+    
+            createUserWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+                // Signed in 
+                const user = userCredential.user;
+                console.log("User signed up!")
+    
+                document.getElementById('signupId').classList.add("input-box-yes");
+                document.getElementById('signupEmail').classList.add("input-box-yes");
+                document.getElementById('signupPassword').classList.add("input-box-yes");
+                setErrorFor('signupIdMsg', "");
+                setErrorFor('signupEmailMsg', "");
+                setErrorFor('signupPasswordMsg', "");
+    
+                setTimeout(function(){
+                  location.reload();
+                  }, 1000); 
+                })
+            .catch((error) => {
+                console.log(error);
+            });
+        } 
+        e.preventDefault();
+    })
+    
+    }
 
 
 
@@ -153,7 +162,9 @@ signupForm.addEventListener('submit', (e) =>{
 
 
     //login
-const loginForm = document.querySelector('#login');
+    function login()
+    {
+      const loginForm = document.querySelector('#login');
 loginForm.addEventListener('submit', (e) =>{
     e.preventDefault();
 
@@ -222,29 +233,10 @@ loginForm.addEventListener('submit', (e) =>{
   });
     }
 })
+    }
 
 
 
-
-
-
-
-//Set an authentication state observer and get user data For each of your app's pages that 
-//need information about the signed-in user, attach an observer to the global authentication 
-//object. This observer gets called whenever the user's sign-in state changes. Attach the 
-//observer using the onAuthStateChanged method. When a user successfully signs in, you can 
-//get information about the user in the observer.
-onAuthStateChanged(auth, (user) => {
-  if (user) {
-    // User is signed in, see docs for a list of available properties
-    // https://firebase.google.com/docs/reference/js/firebase.User
-    const uid = user.uid;
-    // ...
-  } else {
-    // User is signed out
-    // ...
-  }
-});
 
 
 
@@ -286,24 +278,4 @@ export const showLoginError = (error) => {
 function setErrorFor(input, message)
 {
   document.getElementById(input).innerHTML = message;
-}
-
-
-//Check box, remember me
-function check()
-{
-  let checkBox = document.querySelector('.check-box');
-checkBox.addEventListener('change', function() {
-  if(checkBox.checked==true)
-  {
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-          location.href="task.html";
-      } else {
-        // User is signed out
-        // ...
-      }
-    });
-  }
-})
 }

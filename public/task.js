@@ -7,7 +7,8 @@ import {
     onAuthStateChanged,
     createUserWithEmailAndPassword,
     browserSessionPersistence,
-    setPersistence
+    setPersistence,
+    signOut
 } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-auth.js";
 
 import { 
@@ -50,22 +51,13 @@ const allRequests = collection(db, 'request');
 
 
 
-
-onAuthStateChanged(auth, (user) => {
+auth.onAuthStateChanged(function(user) {
     if (user) {
-        constructAll();
+        console.log("Success!");
     } else {
-        location.href="task.html";
+        location.href="stls.html";
     }
 })
-
-async function constructAll()
-{
-    constructTask(await getDocs(printerRequest), document.getElementById('c1Tasks'));
-    constructTask(await getDocs(networkRequest), document.getElementById('c2Tasks'));
-    constructTask(await getDocs(chromeRequest), document.getElementById('c3Tasks'));
-    constructTask(await getDocs(otherRequest), document.getElementById('c4Tasks'));
-}
 
 
 
@@ -73,8 +65,8 @@ async function constructAll()
 
 
 //getting all required elements
-const inputBox = document.querySelector('.inputfield input');
-const addBtn = document.querySelector('.inputfield button');
+// const inputBox = document.querySelector('.inputfield input');
+// const addBtn = document.querySelector('.inputfield button');
 const todoList = document.querySelector('.tasks');
 const list = document.getElementsByClassName('tags');
 const networkRequest = query(allRequests, where('option', '==', 'Network'));
@@ -88,11 +80,15 @@ const chromeRequest = query(allRequests, where('option', '==', 'Chromebook'));
 let temp; //temp = deleteMsg input
 
 
-//adding li tags from database for printerRequest
 
+//adding li tags from database for printerRequest
+constructTask(await getDocs(printerRequest), document.getElementById('c1Tasks'));
+constructTask(await getDocs(networkRequest), document.getElementById('c2Tasks'));
+constructTask(await getDocs(chromeRequest), document.getElementById('c3Tasks'));
+constructTask(await getDocs(otherRequest), document.getElementById('c4Tasks'));
 
 //function that construct and append task li
-async function constructTask(requests, tasks) {
+function constructTask(requests, tasks) {
     requests.forEach((doc) => {
 
         var id = doc.data().id;
@@ -201,6 +197,16 @@ deleteMsg.querySelector('form').addEventListener('submit', function(e) {
             location.reload();
             }, 1000); 
     }
+})
+
+//sign out
+const out = document.querySelector('#out');
+out.addEventListener('click', function() {
+    signOut(auth).then(() => {
+        // Sign-out successful.
+        }).catch((error) => {
+        // An error happened.
+        });
 })
     
 
