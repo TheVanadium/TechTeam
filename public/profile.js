@@ -111,6 +111,34 @@ const firebaseConfig = {
             });
 
 
+
+            //Drag and drop images
+            const dragenter = (e) => {
+                e.stopPropagation();
+                e.preventDefault();
+                }
+                const dragover = (e) => {
+                e.stopPropagation();
+                e.preventDefault();
+                }
+                const drop = (e) => {
+                e.stopPropagation();
+                e.preventDefault();
+                const dt = e.dataTransfer;
+                const files = [...dt.files];
+                const imageRef = ref(storage, `profile-imgs/${email}`);
+            uploadBytes(imageRef, files).then(() => {
+                location.reload();
+            })
+                }
+                img.addEventListener("dragenter", dragenter, false);
+                img.addEventListener("dragover", dragover, false);
+                img.addEventListener("drop", drop, false);
+
+
+
+                
+
         for(let i=0; i<create.length; i++)
         {
             create[i].addEventListener('click', function() {

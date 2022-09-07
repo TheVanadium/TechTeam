@@ -173,6 +173,8 @@ body {
     width: 80%;
     height: fit-content;
     overflow: auto;
+    font-family: 'Lora', serif;
+    font-weight: 500;
 }
 
 .tasks li {

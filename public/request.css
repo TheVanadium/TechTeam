@@ -12,6 +12,7 @@ body
     border-radius: 50px;
     background-color: #738598;
     margin: 6% auto;
+    box-shadow: 0 0 15px 5px #323232;
 }
 
 .headerForm
@@ -24,6 +25,7 @@ body
     display: flex;
     align-items: center;
     justify-content: center;
+    box-shadow: 0 0 5px 1px #1c2141
 }
 
 .headerForm #header
