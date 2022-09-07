@@ -141,7 +141,7 @@ auth.onAuthStateChanged(function(user) {
                 setErrorFor('signupPasswordMsg', "");
     
                 setTimeout(function(){
-                  location.reload();
+                  location.href="profile.html";
                   }, 1000); 
                 })
             .catch((error) => {

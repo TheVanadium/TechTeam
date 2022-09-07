@@ -27,7 +27,8 @@ import {
     getStorage, 
     ref,
     uploadBytesResumable,
-    getDownloadURL
+    getDownloadURL,
+    uploadBytes
 } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-storage.js";
 
 
@@ -49,7 +50,6 @@ const firebaseConfig = {
     const auth = getAuth(app);
     const user = auth.currentUser;
     const storage = getStorage();
-
 
 
 
@@ -98,7 +98,17 @@ const firebaseConfig = {
 
 
 
-
+            getDownloadURL(ref(storage, `profile-imgs/${email}`))
+            .then((url) => {
+              // `url` is the download URL for 'images/stars.jpg'
+                
+              // Or inserted into an <img> element
+                img.setAttribute('src', url);
+            })
+            .catch((error) => {
+              // Handle any errors
+                console.log(error);
+            });
 
 
         for(let i=0; i<create.length; i++)
@@ -140,7 +150,11 @@ const firebaseConfig = {
 
         fileInput.onchange = () => {
             const selectedFile = fileInput.files[0];
-            console.log(selectedFile);
+            
+            const imageRef = ref(storage, `profile-imgs/${email}`);
+            uploadBytes(imageRef, selectedFile).then(() => {
+                location.reload();
+            })
         }
 
 
