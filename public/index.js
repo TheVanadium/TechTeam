@@ -31,16 +31,18 @@ const db = getFirestore(app);
 const auth = getAuth(app);
 const user = auth.currentUser;
 
-function animateImages()
-{
-    var img = document.querySelectorAll('.img');
-    var scroll = document.querySelector(".slider")
-    img.forEach(item => {
-        scroll.addEventListener("scroll", e =>{
-            // console.log(scroll.scrollLeft.toFixed(2));
-            item.style.transform = `translateX(${scroll.scrollLeft/10}px)`;
-        }, { passive: true })
-    });
-}
 
-// animateImages();
+
+
+
+
+
+
+
+
+document.querySelector('#arrLeft').addEventListener('click', function() {
+    document.querySelector('.slider-inner').scrollBy(-1000, 0);
+})
+document.querySelector('#arrRight').addEventListener('click', function() {
+    document.querySelector('.slider-inner').scrollBy(1000, 0);
+})
