@@ -1,106 +1,122 @@
 <!DOCTYPE html>
 
 <html lang="en" dir="ltr">
-<meta name="description" content="Web App for CVHS Tech Team">
-<meta name="author" content="Kevin and Eli">
-<meta name="keywords" content="HTML, web app">
+    <meta name="description" content="Web App for CVHS Tech Team" />
+    <meta name="author" content="Kevin and Eli" />
+    <meta name="keywords" content="HTML, web app" />
 
-<html>
-    <header>
-        <link rel="stylesheet" type="text/css" href="style.css">
-        <link rel="stylesheet" type="text/css" href="request.css">
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;800&family=Lora:wght@500&family=Manrope:wght@500&family=Montserrat:wght@500&family=Poppins:wght@700&display=swap" rel="stylesheet">
+    <html>
+        <header>
+            <link rel="stylesheet" type="text/css" href="style.css" />
+            <link rel="stylesheet" type="text/css" href="request.css" />
+            <link
+                href="https://fonts.googleapis.com/css2?family=Inter:wght@300;800&family=Lora:wght@500&family=Manrope:wght@500&family=Montserrat:wght@500&family=Poppins:wght@700&display=swap"
+                rel="stylesheet"
+            />
+            <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+            <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+            <script type="module" src="request.js"></script>
+            <script type="module" src="header-component.js"></script>
+            <title>TechTeam Request</title>
+        </header>
 
-        <title>
-            TechTeam Request
-        </title>
-    </header>
-    
+        <body>
+            <header-component></header-component>
 
-    <body>
-        
-        <div class="header">
-            <div class="logo_container">
-                <h1>CV<span> TechTeam</span></h1>
+            <div class="requestForm">
+                <div class="headerForm">
+                    <h1 id="header">CV Tech Request Form</h1>
+                </div>
+
+                <form id="form">
+                    <h2>* required</h2>
+
+                    <h1 id="qst">
+                        Please Enter Your Full Name
+                        <ion-icon name="arrow-down-outline"></ion-icon>
+                    </h1>
+                    <input
+                        type="text"
+                        class="input-box"
+                        id="fullName"
+                        placeholder="Full Name*"
+                        autofocus
+                    />
+
+                    <h1 id="qst">
+                        If Submit For A Student Please Enter Their Full Name
+                        <ion-icon name="arrow-down-outline"></ion-icon>
+                    </h1>
+                    <input
+                        type="text"
+                        class="input-box"
+                        id="studentName"
+                        placeholder="Student's Full Name (Optional)"
+                    />
+
+                    <h1 id="qst">
+                        Please Provide Student's Email Address
+                        <ion-icon name="arrow-down-outline"></ion-icon>
+                    </h1>
+                    <input
+                        type="email"
+                        class="input-box"
+                        id="email"
+                        placeholder="Student's Email Address*"
+                    />
+
+                    <input
+                        type="text"
+                        class="input-box"
+                        id="phoneNumber"
+                        placeholder="Your Phone Number(Optional)"
+                        maxlength="10"
+                    />
+
+                    <h1 id="qst">
+                        Enter Student Id For Personal Help
+                        <ion-icon name="arrow-down-outline"></ion-icon>
+                    </h1>
+                    <input
+                        type="text"
+                        class="input-box"
+                        id="id"
+                        placeholder="Room Number/Student Id*"
+                        maxlength="6"
+                    />
+
+                    <select id="option">
+                        <option value="Printer">Printer</option>
+                        <option value="Network">Network</option>
+                        <option value="Chromebook">Chromebook</option>
+                        <option value="Other">Other</option>
+                    </select>
+
+                    <textarea
+                        id="textArea"
+                        placeholder="Please Briefly Describe Your Issue*"
+                    ></textarea>
+
+                    <h1 id="msg"></h1>
+
+                    <button id="button" type="buton">Submit</button>
+                </form>
             </div>
 
-            <ul class="nav">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="request.html">Request</a></li>
-                <li><a href="stls.html">STLs</a></li>
-                <li><a href="learn.html">Learn</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><ion-icon name="sunny-outline" size="large" id="sun"></ion-icon></li>
-            </ul>
-        </div>
-        
-        
-        <div class="requestForm">
+            <!--Hide Input Number Arrows-->
+            <style>
+                /* Chrome, Safari, Edge, Opera */
+                input::-webkit-outer-spin-button,
+                input::-webkit-inner-spin-button {
+                    -webkit-appearance: none;
+                    margin: 0;
+                }
 
-            <div class="headerForm">
-                <h1 id="header">CV Tech Request Form</h1>
-            </div>
-
-
-            
-            <form id="form">
-
-                <h2>* required</h2>
-
-                <h1 id="qst">Please Enter Your Full Name <ion-icon name="arrow-down-outline"></ion-icon></h1>
-                <input type="text" class="input-box" id="fullName" placeholder="Full Name*" autofocus/>
-
-                <h1 id="qst">If Submit For A Student Please Enter Their Full Name <ion-icon name="arrow-down-outline"></ion-icon></h1>
-                <input type="text" class="input-box" id="studentName" placeholder="Student's Full Name (Optional)"/>
-
-                <h1 id="qst">Please Provide Student's Email Address <ion-icon name="arrow-down-outline"></ion-icon></h1>
-                <input type="email" class="input-box" id="email" placeholder="Student's Email Address*"/>
-                
-                <input type="text" class="input-box" id="phoneNumber" placeholder="Your Phone Number(Optional)" maxlength="10"/>
-
-                <h1 id="qst">Enter Student Id For Personal Help <ion-icon name="arrow-down-outline"></ion-icon></h1>
-                <input type="text" class="input-box" id="id" placeholder="Room Number/Student Id*" maxlength="6"/>
-
-                <select id="option">
-                    <option value="Printer">Printer</option>
-                    <option value="Network">Network</option>
-                    <option value="Chromebook">Chromebook</option>
-                    <option value="Other">Other</option>
-                </select>
-
-                <textarea id="textArea" placeholder="Please Briefly Describe Your Issue*"></textarea>
-
-                <h1 id="msg"></h1>
-
-                <button id="button" type ="buton">Submit</button>
-
-            </form> 
-        </div>
-        
-            
-
-
-<!--Hide Input Number Arrows-->
-<style>
-    /* Chrome, Safari, Edge, Opera */
-    input::-webkit-outer-spin-button,
-    input::-webkit-inner-spin-button {
-        -webkit-appearance: none;
-        margin: 0;
-    }
-    
-    /* Firefox */
-    input[type=number] {
-        -moz-appearance: textfield;
-    }
-    </style>
-
-
-
-
-
-        <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-    <script type="module" src="request.js"></script>
-    </body>
+                /* Firefox */
+                input[type="number"] {
+                    -moz-appearance: textfield;
+                }
+            </style>
+        </body>
+    </html>
 </html>

@@ -1,140 +1,165 @@
 <!DOCTYPE html>
 
 <html lang="en" dir="ltr">
-<meta name="description" content="Web App for CVHS Tech Team">
-<meta name="author" content="Kevin and Eli">
-<meta name="keywords" content="HTML, web app">
+    <meta name="description" content="Web App for CVHS Tech Team" />
+    <meta name="author" content="Kevin and Eli" />
+    <meta name="keywords" content="HTML, web app" />
 
-<head>
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;800&family=Lora:wght@500&family=Manrope:wght@500&family=Montserrat:wght@500&family=Poppins:wght@700&display=swap" rel="stylesheet">
-    <link rel="shortcut icon" href="/assets/favicon.ico">
-    <link rel="stylesheet" href="learn.css">
-    <title>
-    Learn
-</title>
+    <head>
+        <link rel="stylesheet" type="text/css" href="style.css" />
+        <link rel="stylesheet" href="learn.css" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;800&family=Lora:wght@500&family=Manrope:wght@500&family=Montserrat:wght@500&family=Poppins:wght@700&display=swap"
+            rel="stylesheet"
+        />
+        <script
+            type="module"
+            src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+        ></script>
+        <script type="module" src="header-component.js"></script>
+        <title>Learn</title>
     </head>
 
-<body>
-    <div class="header">
-        <div class="logo_container">
-            <h1>TechTeam<span> Learn</span></h1>
-        </div>
+    <body>
+        <header-component></header-component>
 
-        <ul class="nav">
-            <li><a href="index.html">HOME</a></li>
-            <li><a href="request.html">REQUEST</a></li>
-            <li><a href="stls.html">STL</a></li>
-            <li><a href="learn.html">LEARN</a></li>
-            <li><a href="about.html">ABOUT</a></li>
-            <li><ion-icon name="sunny-outline" size="large" id="sun"></ion-icon></li>
-        </ul>
-    </div>
-    
-    <div class="cards">
-        <div class="card">
-            <img src="https://www.razlee.com/wp-content/uploads/2017/08/Password-Reset-1-768x768-1.png" alt="" class="card__image">
-            <div class="card__content">
-                <h3>
-                    Reset Your Password With Google Form.
-                </h3>
-                <p>
-                    Please note that this form is ONLY to request a password reset. 
-                    All other tech issues, please fill out CVHS Tech Team Assistance Form on our CV main page. 
-                </p>
-            </div>
-            <div class="card__info">
-                <div>
-                    <button class="material-icons">thumb_up</button><span>0</span>
+        <div class="cards">
+            <div class="card">
+                <img
+                    src="https://www.razlee.com/wp-content/uploads/2017/08/Password-Reset-1-768x768-1.png"
+                    alt=""
+                    class="card__image"
+                />
+                <div class="card__content">
+                    <h3>Reset Your Password With Google Form.</h3>
+                    <p>
+                        Please note that this form is ONLY to request a password
+                        reset. All other tech issues, please fill out CVHS Tech
+                        Team Assistance Form on our CV main page.
+                    </p>
                 </div>
-                <div>
-                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSeMzDSOPxqWtIkaYbQ_JQMmM-73us6h5dsPITCmaor-RDWQPA/viewform" class="card__link">Password Reset Request</a>
-                </div>
-            </div>
-        </div>
-        
-        <div class="card">
-            <img src="https://static.hudl.com/users/temp/7184365_44024827885c4055a1f4d842592ab8f0.jpg" alt="" class="card__image">
-            <div class="card__content">
-                <h3>
-                    Crescenta Home Page.
-                </h3>
-                <p>
-                    Welcome to Crescenta Valley High School!
-                </p>
-            </div>
-            <div class="card__info">
-                <div>
-                    <button class="material-icons">thumb_up</button><span>0</span>
-                </div>
-                <div>
-                    <a href="https://www.gusd.net/Page/1024" class="card__link">CVHS.gusd</a>
+                <div class="card__info">
+                    <div>
+                        <button class="thumbUp">
+                            <ion-icon name="thumbs-up-sharp"></ion-icon></button
+                        ><span>0</span>
+                    </div>
+                    <div>
+                        <a
+                            href="https://docs.google.com/forms/d/e/1FAIpQLSeMzDSOPxqWtIkaYbQ_JQMmM-73us6h5dsPITCmaor-RDWQPA/viewform"
+                            class="card__link"
+                            >Password Reset Request</a
+                        >
+                    </div>
                 </div>
             </div>
-        </div>
-        
-        <div class="card">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/YouTube_social_red_square_%282017%29.svg/1200px-YouTube_social_red_square_%282017%29.svg.png" alt="" class="card__image">
-            <div class="card__content">
-                <h3>
-                    Tech team trainning videos.
-                </h3>
-                <p>
-                    Clever, Zoom, Google Classroom, CV Website, Kami, SoloLearn, Fusion 360, Tinkercar, GUSD Student Portal.
-                </p>
-            </div>
-            <div class="card__info">
-                <div>
-                    <button class="material-icons">thumb_up</button><span>0</span>
-                </div>
-                <div>
-                    <a href="https://www.youtube.com/watch?v=xJIYYYwfbpg&list=PLssVxGWwKpHSVGBTkblZt7WnZ5W6zEvft" class="card__link">Youtube</a>
-                </div>
-            </div>
-        </div>
-        
-        <div class="card">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTg_hr1knZUAeP5kLVDMtnl004MU4SsXfOEHXIecEsagjwdno-n8M5oDBpl9R0-22wwxWg&usqp=CAU" alt="" class="card__image">
-            <div class="card__content">
-                <h3>
-                    Tutorial For Printers.
-                </h3>
-                <p>
-                    To connect to a printer or update driver/firmware.
-                </p>
-            </div>
-            <div class="card__info">
-                <div>
-                    <button class="material-icons">thumb_up</button><span>0</span>
-                </div>
-                <div>
-                    <a href="https://www.youtube.com/watch?v=xJIYYYwfbpg&list=PLssVxGWwKpHSVGBTkblZt7WnZ5W6zEvft" class="card__link">View Article</a>
-                </div>
-            </div>
-        </div>
-        
-        <div class="card">
-            <img src="imgs/589.webp" alt="First Robotic Competition Team 589" class="card__image">
-            <div class="card__content">
-                <h3>
-                    Shout Out To 589 Robotic!
-                </h3>
-                <p>
-                    Wanna learn more about FRC Team 589?
-                </p>
-            </div>
-            <div class="card__info">
-                <div>
-                    <button class="material-icons">thumb_up</button><span>0</span>
-                </div>
-                <div>
-                    <a href="https://www.cvrobots.com/index.html" class="card__link">View Article</a>
-                </div>
-            </div>
-        </div>
-    </div>
 
-    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-</body>
+            <div class="card">
+                <img
+                    src="https://static.hudl.com/users/temp/7184365_44024827885c4055a1f4d842592ab8f0.jpg"
+                    alt=""
+                    class="card__image"
+                />
+                <div class="card__content">
+                    <h3>Crescenta Home Page.</h3>
+                    <p>Welcome to Crescenta Valley High School!</p>
+                </div>
+                <div class="card__info">
+                    <div>
+                        <button class="thumbUp">
+                            <ion-icon name="thumbs-up-sharp"></ion-icon></button
+                        ><span>0</span>
+                    </div>
+                    <div>
+                        <a
+                            href="https://www.gusd.net/Page/1024"
+                            class="card__link"
+                            >CVHS.gusd</a
+                        >
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/YouTube_social_red_square_%282017%29.svg/1200px-YouTube_social_red_square_%282017%29.svg.png"
+                    alt=""
+                    class="card__image"
+                />
+                <div class="card__content">
+                    <h3>Tech team trainning videos.</h3>
+                    <p>
+                        Clever, Zoom, Google Classroom, CV Website, Kami,
+                        SoloLearn, Fusion 360, Tinkercar, GUSD Student Portal.
+                    </p>
+                </div>
+                <div class="card__info">
+                    <div>
+                        <button class="thumbUp">
+                            <ion-icon name="thumbs-up-sharp"></ion-icon></button
+                        ><span>0</span>
+                    </div>
+                    <div>
+                        <a
+                            href="https://www.youtube.com/watch?v=xJIYYYwfbpg&list=PLssVxGWwKpHSVGBTkblZt7WnZ5W6zEvft"
+                            class="card__link"
+                            >Youtube</a
+                        >
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTg_hr1knZUAeP5kLVDMtnl004MU4SsXfOEHXIecEsagjwdno-n8M5oDBpl9R0-22wwxWg&usqp=CAU"
+                    alt=""
+                    class="card__image"
+                />
+                <div class="card__content">
+                    <h3>Tutorial For Printers.</h3>
+                    <p>To connect to a printer or update driver/firmware.</p>
+                </div>
+                <div class="card__info">
+                    <div>
+                        <button class="thumbUp">
+                            <ion-icon name="thumbs-up-sharp"></ion-icon></button
+                        ><span>0</span>
+                    </div>
+                    <div>
+                        <a
+                            href="https://www.youtube.com/watch?v=xJIYYYwfbpg&list=PLssVxGWwKpHSVGBTkblZt7WnZ5W6zEvft"
+                            class="card__link"
+                            >View Article</a
+                        >
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <img
+                    src="imgs/589.webp"
+                    alt="First Robotic Competition Team 589"
+                    class="card__image"
+                />
+                <div class="card__content">
+                    <h3>Shout Out To 589 Robotic!</h3>
+                    <p>Wanna learn more about FRC Team 589?</p>
+                </div>
+                <div class="card__info">
+                    <div>
+                        <button class="thumbUp">
+                            <ion-icon name="thumbs-up-sharp"></ion-icon></button
+                        ><span>0</span>
+                    </div>
+                    <div>
+                        <a
+                            href="https://www.cvrobots.com/index.html"
+                            class="card__link"
+                            >View Article</a
+                        >
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
 </html>

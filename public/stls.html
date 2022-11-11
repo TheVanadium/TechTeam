@@ -1,128 +1,143 @@
 <!DOCTYPE html>
 
 <html lang="en" dir="ltr">
-<meta name="description" content="Web App for CVHS Tech Team">
-<meta name="author" content="Kevin and Eli">
-<meta name="keywords" content="HTML, web app">
+    <meta name="description" content="Web App for CVHS Tech Team" />
+    <meta name="author" content="Kevin and Eli" />
+    <meta name="keywords" content="HTML, web app" />
 
-<head>
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <link rel="stylesheet" href="stls.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;800&family=Lora:wght@500&family=Manrope:wght@500&family=Montserrat:wght@500&family=Poppins:wght@700&display=swap" rel="stylesheet">
-
-    <title>
-    TechTeam STLs
-</title>
+    <head>
+        <link rel="stylesheet" type="text/css" href="style.css" />
+        <link rel="stylesheet" href="stls.css" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;800&family=Lora:wght@500&family=Manrope:wght@500&family=Montserrat:wght@500&family=Poppins:wght@700&display=swap"
+            rel="stylesheet"
+        />
+        <script type="module" src="stls.js"></script>
+        <script type="module" src="header-component.js"></script>
+        <script
+            type="module"
+            src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+        ></script>
+        <script
+            nomodule
+            src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+        ></script>
+        <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+        <title>TechTeam STLs</title>
     </head>
 
-<body>
-    <div class="header">
-        <div class="logo_container">
-            <h1>CV<span> TechTeam</span></h1>
+    <body>
+        <header-component></header-component>
+
+        <!-- hero is the main wrapper of sign up form -->
+        <div class="hero">
+            <!-- sign-up-form is the secondary wrapper -->
+            <div id="signupWrapper" class="sign-up-form">
+                <!-- transition for login and register -->
+                <div class="button-box">
+                    <div id="btn"></div>
+                    <button
+                        type="button"
+                        class="toggle-btn"
+                        onclick="loginpage()"
+                    >
+                        Log in
+                    </button>
+                    <button
+                        type="button"
+                        class="toggle-btn"
+                        onclick="registerpage()"
+                    >
+                        Sign up
+                    </button>
+                </div>
+
+                <!-- login form that takes in email, password, remember-me checkbox, and signup-btn button -->
+                <form id="login" class="input-group">
+                    <input
+                        type="text"
+                        id="loginEmail"
+                        class="input-box"
+                        placeholder="Email"
+                        autofocus
+                    />
+                    <p class="msg" id="loginEmailMsg"></p>
+                    <input
+                        type="password"
+                        id="loginPassword"
+                        class="input-box"
+                        placeholder="Password"
+                    />
+                    <p class="msg" id="loginPasswordMsg"></p>
+                    <br />
+                    <!-- <input type="checkbox" class="check-box"><span>Remember Password</span> -->
+                    <button type="buton" class="signup-btn">Sign in</button>
+                </form>
+
+                <!-- register form that takes in student id, email, password, and signup-btn button -->
+                <form id="register" class="input-group">
+                    <input
+                        type="password"
+                        id="signupId"
+                        class="input-box"
+                        placeholder="Id"
+                        maxlength="10"
+                    />
+                    <p class="msg" id="signupIdMsg"></p>
+                    <input
+                        type="email"
+                        id="signupEmail"
+                        class="input-box"
+                        placeholder="Your Email"
+                    />
+                    <p class="msg" id="signupEmailMsg"></p>
+                    <input
+                        type="password"
+                        id="signupPassword"
+                        class="input-box"
+                        placeholder="Your Password"
+                        minlength="12"
+                    />
+                    <p class="msg" id="signupPasswordMsg"></p>
+                    <button type="buton" class="signup-btn">Sign up</button>
+                </form>
+            </div>
         </div>
 
-        <ul class="nav">
-            <li><a href="index.html">HOME</a></li>
-            <li><a href="request.html">REQUEST</a></li>
-            <li><a href="stls.html">STL</a></li>
-            <li><a href="learn.html">LEARN</a></li>
-            <li><a href="about.html">ABOUT</a></li>
-            <li><ion-icon name="sunny-outline" size="large" id="sun"></ion-icon></li>
-        </ul>
-    </div>
-    
-    
-    
-    <!-- hero is the main wrapper of sign up form -->
-<div class="hero">
+        <!--animation of alternating between login and signup page-->
+        <script>
+            var x = document.getElementById("login");
+            var y = document.getElementById("register");
+            var z = document.getElementById("btn");
 
-    <!-- sign-up-form is the secondary wrapper -->
-    <div id="signupWrapper" class="sign-up-form">
+            x.style.left = "0px";
 
-        <!-- transition for login and register -->
-        <div class="button-box">
-            <div id="btn"></div>
-            <button type="button" class="toggle-btn" onclick="loginpage()">Log in</button>
-            <button type="button" class="toggle-btn" onclick="registerpage()">Sign up</button>
-        </div>
+            function registerpage() {
+                x.style.left = "500px";
+                y.style.left = "0px";
+                z.style.left = "110px";
+            }
+            function loginpage() {
+                x.style.left = "0px";
+                y.style.left = "-500px";
+                z.style.left = "0px";
+            }
+        </script>
 
+        <!--Hide Input Number Arrows-->
+        <style>
+            /* Chrome, Safari, Edge, Opera */
+            input::-webkit-outer-spin-button,
+            input::-webkit-inner-spin-button {
+                -webkit-appearance: none;
+                margin: 0;
+            }
 
-
-        <!-- login form that takes in email, password, remember-me checkbox, and signup-btn button -->
-        <form id="login" class="input-group">
-                <input type="text" id="loginEmail" class="input-box" placeholder="Email" autofocus>
-                <p class="msg" id="loginEmailMsg"></p>
-                <input type="password" id="loginPassword" class="input-box" placeholder="Password">
-                <p class="msg" id="loginPasswordMsg"></p>
-                <br/>
-                <!-- <input type="checkbox" class="check-box"><span>Remember Password</span> -->
-                <button type ="buton" class="signup-btn">Sign in</button>
-        </form>
-
-
-
-        <!-- register form that takes in student id, email, password, and signup-btn button -->
-        <form id="register" class="input-group">
-                <input type="password" id="signupId" class="input-box" placeholder="Id" maxlength="10"/>
-                <p class="msg" id="signupIdMsg"></p>
-                <input type="email" id="signupEmail" class="input-box" placeholder="Your Email"/>
-                <p class="msg" id="signupEmailMsg"></p>
-                <input type="password" id="signupPassword" class="input-box" placeholder="Your Password" minlength="12"/>
-                <p class="msg" id="signupPasswordMsg"></p>
-                <button type ="buton" class="signup-btn">Sign up</button>
-        </form>
-    </div>
-</div>
-
-
-
-<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
-
-<!--animation of alternating between login and signup page-->
-<script>
-    var x = document.getElementById("login");
-    var y = document.getElementById("register");
-    var z = document.getElementById("btn");
-    
-    x.style.left = "0px";
-    
-    function registerpage()
-    {
-        x.style.left = "500px";
-        y.style.left = "0px";
-        z.style.left = "110px";
-    }
-    function loginpage()
-    {
-        x.style.left = "0px";
-        y.style.left = "-500px";
-        z.style.left = "0px";
-    }
-</script>
-
-
-
-<!--Hide Input Number Arrows-->
-<style>
-    /* Chrome, Safari, Edge, Opera */
-    input::-webkit-outer-spin-button,
-    input::-webkit-inner-spin-button {
-        -webkit-appearance: none;
-        margin: 0;
-    }
-    
-    /* Firefox */
-    input[type=number] {
-        -moz-appearance: textfield;
-    }
-    </style>
-
-
-
-    <script type="module" src="stls.js"></script>
-    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-
-</body>
+            /* Firefox */
+            input[type="number"] {
+                -moz-appearance: textfield;
+            }
+        </style>
+    </body>
 </html>
