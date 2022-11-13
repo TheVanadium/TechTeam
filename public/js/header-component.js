@@ -1,7 +1,41 @@
 //This JS code is a header component
 
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-app.js";
+import {
+    getAuth,
+    signInWithEmailAndPassword,
+    connectAuthEmulator,
+    onAuthStateChanged,
+    createUserWithEmailAndPassword,
+    signOut,
+} from "https://www.gstatic.com/firebasejs/9.4.0/firebase-auth.js";
+import { getFirestore } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-firestore.js";
+
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+    apiKey: "AIzaSyAYbHvFRpO1vwjo8zTeGlQOmgTETfO_5u4",
+    authDomain: "cvtechteam-c44a2.firebaseapp.com",
+    projectId: "cvtechteam-c44a2",
+    storageBucket: "cvtechteam-c44a2.appspot.com",
+    messagingSenderId: "724830760584",
+    appId: "1:724830760584:web:f103595593f11349ed793d",
+    measurementId: "G-WF0BXB7HLT",
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+
+const db = getFirestore(app);
+const auth = getAuth(app);
+const user = auth.currentUser;
+
 var locationToken = '<li><a href="stls.html">STLS</a></li>';
-var locationToken2;
+var locationToken2 = "";
 
 if (window.location.href.includes("public/task.html")) {
     locationToken = '<li><a href="profile.html">PROFILE</a></li>';
@@ -184,14 +218,17 @@ class Header extends HTMLElement {
         shadowRoot.appendChild(headerTemplate.content);
     }
 }
-
 customElements.define("header-component", Header);
+
 //sign out
-const out = document.querySelector("#out");
+const out = document
+    .querySelector("header-component")
+    .shadowRoot.querySelector("#out");
 out.addEventListener("click", function () {
     signOut(auth)
         .then(() => {
             // Sign-out successful.
+            alert("Sign out confirmed!");
         })
         .catch((error) => {
             // An error happened.

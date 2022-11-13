@@ -188,18 +188,6 @@ deleteMsg.querySelector("form").addEventListener("submit", function (e) {
     }
 });
 
-//sign out
-const out = document.querySelector("#out");
-out.addEventListener("click", function () {
-    signOut(auth)
-        .then(() => {
-            // Sign-out successful.
-        })
-        .catch((error) => {
-            // An error happened.
-        });
-});
-
 /*
 //detects input
 inputBox.onkeyup = () =>{

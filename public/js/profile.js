@@ -145,16 +145,4 @@ async function setProfile(user, email) {
             location.reload();
         });
     };
-
-    //sign out
-    const out = document.querySelector("#out");
-    out.addEventListener("click", function () {
-        signOut(auth)
-            .then(() => {
-                // Sign-out successful.
-            })
-            .catch((error) => {
-                // An error happened.
-            });
-    });
 }
