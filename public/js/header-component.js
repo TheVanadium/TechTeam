@@ -37,11 +37,11 @@ const user = auth.currentUser;
 var locationToken = '<li><a href="stls.html">STLS</a></li>';
 var locationToken2 = "";
 
-if (window.location.href.includes("public/task.html")) {
+if (window.location.href.includes("task.html")) {
     locationToken = '<li><a href="profile.html">PROFILE</a></li>';
     locationToken2 =
         '<li><ion-icon name="log-out-outline" size="large" id="out"></ion-icon></li>';
-} else if (window.location.href.includes("public/profile.html")) {
+} else if (window.location.href.includes("profile.html")) {
     locationToken = '<li><a href="task.html">TASK</a></li>';
     locationToken2 =
         '<li><ion-icon name="log-out-outline" size="large" id="out"></ion-icon></li>';
