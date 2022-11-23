@@ -9,6 +9,7 @@
 }
 
 .inner-mainpage {
+    padding: 0 10% 0 10%;
     max-width: 100%;
     position: relative;
 }
@@ -68,6 +69,15 @@
     transform: translateX(-50%);
 }
 
+.slider-cover {
+    position: absolute;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    opacity: 50%;
+}
+
 .slider {
     background-color: #555555;
     position: absolute;
@@ -100,6 +110,7 @@
     transform: translateY(-50%);
     cursor: pointer;
     z-index: 3;
+    color: #ffffff;
 }
 
 .arrows:hover {
