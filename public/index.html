@@ -29,16 +29,21 @@
         <header-component></header-component>
 
         <div class="slider">
-            <ion-icon
-                name="chevron-forward-outline"
-                class="arrows"
-                id="arrRight"
-            ></ion-icon>
-            <ion-icon
-                name="chevron-back-outline"
-                class="arrows"
-                id="arrLeft"
-            ></ion-icon>
+            <div class="arrowHover" id="arrowHover-left">
+                <ion-icon
+                    name="chevron-back-outline"
+                    class="arrows"
+                    id="arrLeft"
+                ></ion-icon>
+            </div>
+            <div class="arrowHover" id="arrowHover-right">
+                <ion-icon
+                    name="chevron-forward-outline"
+                    class="arrows"
+                    id="arrRight"
+                ></ion-icon>
+            </div>
+
             <div class="slider-cover"></div>
             <div class="slider-inner">
                 <img class="img" src="./imgs/1.jpg" />

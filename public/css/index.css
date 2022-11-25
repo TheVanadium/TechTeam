@@ -84,6 +84,7 @@
     left: 0;
     height: 100%;
     width: 100%;
+    overflow: hidden;
 }
 
 .slider-inner {
@@ -103,6 +104,35 @@
     scroll-snap-align: center;
 }
 
+.arrowHover {
+    position: absolute;
+    width: 10rem;
+    height: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 3;
+    cursor: pointer;
+    opacity: 100%;
+}
+
+#arrowHover-left {
+    left: -3%;
+}
+
+#arrowHover-left:hover>#arrLeft{
+    left: -3% !important;
+    transition: 0.5s !important;
+}
+
+#arrowHover-right {
+    right: -3%;
+}
+
+#arrowHover-right:hover>#arrRight{
+    right: -3% !important;
+    transition: 0.5s !important;
+}
+
 .arrows {
     font-size: 10rem;
     position: fixed;
@@ -118,9 +148,11 @@
 }
 
 #arrRight {
-    right: -3%;
+    right: -300%;
+    transition: 0.7s;
 }
 
 #arrLeft {
-    left: -3%;
+    left: -10rem;
+    transition: 0.7s;
 }

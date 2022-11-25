@@ -83,7 +83,7 @@ body::-webkit-scrollbar-thumb:hover {
     justify-content: space-between;
     position: sticky;
     top: 0;
-    z-index: 3;
+    z-index: 100;
     user-select: none;
     font-family: 'Poppins', sans-serif;
     outline: #7c7c7c solid 2px;
@@ -221,7 +221,8 @@ class Header extends HTMLElement {
 customElements.define("header-component", Header);
 
 //sign out
-const out = document
+try {
+    const out = document
     .querySelector("header-component")
     .shadowRoot.querySelector("#out");
 out.addEventListener("click", function () {
@@ -234,3 +235,7 @@ out.addEventListener("click", function () {
             // An error happened.
         });
 });
+} catch (error) {
+    
+}
+
