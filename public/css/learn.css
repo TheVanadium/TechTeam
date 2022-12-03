@@ -60,7 +60,7 @@ body {
 
 .card__info .thumbUp {
     text-decoration: none;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     border: none;
     color: #3b3b3b;
     background: #e3e1e1;
@@ -71,20 +71,51 @@ body {
     color: #eb4034;
 }
 
-@keyframes thumbClicked{
-    0%{
+.thumbclicked {
+    text-decoration: none;
+    font-size: 0.9rem;
+    border: none;
+    color: #ff0000 !important;
+    background: #e3e1e1;
+    cursor: pointer;
+    animation: thumbClickedAnimation 0.5s !important;
+}
+
+@keyframes thumbClickedAnimation {
+    0% {
+        font-size: 0.9rem;
+        transform: rotate(0);
         color: #3b3b3b;
     }
 
-    100%{
-        color: #ff2919;
+    20% {
+        transform: rotate(-15deg);
+    }
+
+    40% {
+        transform: rotate(15deg);
+    }
+
+    60% {
+        font-size: 1.1rem;
+        transform: rotate(-15deg);
+    }
+
+    80% {
+        transform: rotate(15deg);
+    }
+
+    100% {
+        font-size: 0.9rem;
+        transform: rotate(0);
+        color: #ff0000;
     }
 }
 
 .card__link {
     color: #64968c;
     text-decoration: none;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     font-weight: 600;
 }
 
