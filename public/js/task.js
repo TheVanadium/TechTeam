@@ -75,6 +75,11 @@ constructTask(
 constructTask(await getDocs(chromeRequest), document.getElementById("c3Tasks"));
 constructTask(await getDocs(otherRequest), document.getElementById("c4Tasks"));
 
+checkTaskNumber("c1");
+checkTaskNumber("c2");
+checkTaskNumber("c3");
+checkTaskNumber("c4");
+
 //function that construct and append task li
 function constructTask(requests, tasks) {
     requests.forEach((doc) => {
@@ -205,3 +210,14 @@ inputBox.onkeyup = () =>{
     }
 
     */
+
+function checkTaskNumber(task) {
+    let taskNumber = document.querySelector(
+        `.${task} .tasks`
+    ).childElementCount;
+    document.querySelector(`.${task} #counter`).textContent = `${taskNumber}`;
+    if (taskNumber == 0) {
+        document.querySelector(`.${task} .tasksMessage`).textContent =
+            "There are no task rn";
+    }
+}
