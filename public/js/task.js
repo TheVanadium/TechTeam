@@ -1,3 +1,4 @@
+//Firebase initialization
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-app.js";
 
 import {
@@ -42,6 +43,7 @@ const auth = getAuth(app);
 const user = auth.currentUser;
 const allRequests = collection(db, "request");
 
+//This checks the if user is logged in, if not then user will not be able to access this page
 auth.onAuthStateChanged(function (user) {
     if (user) {
         console.log("Success!");
@@ -60,8 +62,10 @@ const printerRequest = query(allRequests, where("option", "==", "Printer"));
 const otherRequest = query(allRequests, where("option", "==", "Other"));
 const chromeRequest = query(allRequests, where("option", "==", "Chromebook"));
 
-//declare temp as a global variable(outside of any function)
-let temp; //temp = deleteMsg input
+//declare tempDeleteMsg as a global variable(outside of any function)
+//tempDeleteMsg is deleteMsg input to confirm delete task.
+//To confirm deletion user must enter the corresponding id of the task
+let tempDeleteMsg;
 
 //adding li tags from database for printerRequest
 constructTask(
@@ -125,6 +129,7 @@ function constructTask(requests, tasks) {
     });
 }
 
+//Added assign and delete function for all the li tags (tasks)
 for (var i = 0; i < list.length; i++) {
     list[i].addEventListener("click", function () {
         this.classList.toggle("tags-read-more");
@@ -142,7 +147,7 @@ for (var i = 0; i < list.length; i++) {
         e.stopPropagation();
         let deleteMsgWrapper = document.getElementById("deleteMsgWrapper");
         let deleteMsg = document.getElementById("deleteMsg");
-        temp = this.parentNode.querySelector("#id").innerHTML;
+        tempDeleteMsg = this.parentNode.querySelector("#id").innerHTML;
 
         //show the delete msg prompt
         deleteMsgWrapper.style.zIndex = 1;
@@ -173,7 +178,7 @@ for (var i = 0; i < list.length; i++) {
 //delete a task li
 deleteMsg.querySelector("form").addEventListener("submit", function (e) {
     e.preventDefault();
-    if (deleteMsg.querySelector("input").value != temp) {
+    if (deleteMsg.querySelector("input").value != tempDeleteMsg) {
         deleteMsg.querySelector("input").classList.remove("yes");
         setTimeout(function () {
             deleteMsg.querySelector("input").classList.add("no");
@@ -185,13 +190,26 @@ deleteMsg.querySelector("form").addEventListener("submit", function (e) {
             deleteMsg.querySelector("input").classList.add("yes");
         }, 10);
         deleteMsg.querySelector("input").classList.remove("yes");
-        deleteDoc(doc(allRequests, temp));
+        deleteDoc(doc(allRequests, tempDeleteMsg));
 
         setTimeout(function () {
             location.reload();
         }, 1000);
     }
 });
+
+//This function check the number of tasks in a cat
+function checkTaskNumber(task) {
+    let taskNumber = document.querySelector(
+        `.${task} .tasks`
+    ).childElementCount;
+    document.querySelector(`.${task} #counter`).textContent = `${taskNumber}`;
+    if (taskNumber == 0) {
+        document.querySelector(`.${task} .tasksMessage`).textContent =
+            "There are no task rn";
+        document.querySelector(`.${task}`).style.height = "300px";
+    }
+}
 
 /*
 //detects input
@@ -211,13 +229,8 @@ inputBox.onkeyup = () =>{
 
     */
 
-function checkTaskNumber(task) {
-    let taskNumber = document.querySelector(
-        `.${task} .tasks`
-    ).childElementCount;
-    document.querySelector(`.${task} #counter`).textContent = `${taskNumber}`;
-    if (taskNumber == 0) {
-        document.querySelector(`.${task} .tasksMessage`).textContent =
-            "There are no task rn";
-    }
-}
+
+
+    //I need to add date to when request is recorded. The date will appear on the task
+    //It will also affect the dot-indicator's color. The date will also help construct
+    //a trash cat that holds deleted task and auto delete them after a month

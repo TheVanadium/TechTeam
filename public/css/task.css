@@ -106,7 +106,7 @@ body {
 
 #deleteMsg button:hover {
     cursor: pointer;
-    font-size: 3rem;
+    font-size: 4rem;
     transition: 0.3s ease-in-out;
     color: #ca0000;
 }
@@ -303,4 +303,5 @@ body {
     font-size: 4rem;
     position: relative;
     align-self: center;
+    bottom: 20%;
 }
