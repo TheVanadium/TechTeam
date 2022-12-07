@@ -3,46 +3,25 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.4.0/firebase
 import {
     getFirestore,
     collection,
-    addDoc,
     doc,
-    setDoc,
     getDocs,
-    getDoc,
     query,
     where,
     updateDoc,
 } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-firestore.js";
 
-import {
-    getAuth,
-    signInWithEmailAndPassword,
-    connectAuthEmulator,
-    onAuthStateChanged,
-    createUserWithEmailAndPassword,
-    browserSessionPersistence,
-    setPersistence,
-    signOut,
-} from "https://www.gstatic.com/firebasejs/9.4.0/firebase-auth.js";
+import { getAuth } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-auth.js";
 
 import {
     getStorage,
     ref,
-    uploadBytesResumable,
     getDownloadURL,
     uploadBytes,
 } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-storage.js";
 
-const firebaseConfig = {
-    apiKey: "AIzaSyAYbHvFRpO1vwjo8zTeGlQOmgTETfO_5u4",
-    authDomain: "cvtechteam-c44a2.firebaseapp.com",
-    projectId: "cvtechteam-c44a2",
-    storageBucket: "cvtechteam-c44a2.appspot.com",
-    messagingSenderId: "724830760584",
-    appId: "1:724830760584:web:f103595593f11349ed793d",
-    measurementId: "G-WF0BXB7HLT",
-};
+import { firebaseConfig } from "./Firebase.js";
 
-const app = initializeApp(firebaseConfig);
+const app = initializeApp(firebaseConfig());
 const db = getFirestore(app);
 const auth = getAuth(app);
 const user = auth.currentUser;

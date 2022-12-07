@@ -6,19 +6,11 @@ import { getFirestore,
         setDoc
 } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-firestore.js";
 
-const firebaseConfig = {
-    apiKey: "AIzaSyAYbHvFRpO1vwjo8zTeGlQOmgTETfO_5u4",
-    authDomain: "cvtechteam-c44a2.firebaseapp.com",
-    projectId: "cvtechteam-c44a2",
-    storageBucket: "cvtechteam-c44a2.appspot.com",
-    messagingSenderId: "724830760584",
-    appId: "1:724830760584:web:f103595593f11349ed793d",
-    measurementId: "G-WF0BXB7HLT"
-    };
+import { firebaseConfig } from "./Firebase.js";
 
 
 
-    const app = initializeApp(firebaseConfig);
+    const app = initializeApp(firebaseConfig());
     const db = getFirestore(app);
 
 
