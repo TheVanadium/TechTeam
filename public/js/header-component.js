@@ -180,7 +180,7 @@ function createNavElement() {
     
     <div class="header">
             <div class="logo_container">
-                <h1>TechTeam<span> Learn</span></h1>
+                <h1>CV<span> TechTeam</span></h1>
             </div>
     
             <ul class="nav">

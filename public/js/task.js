@@ -26,7 +26,7 @@ const allRequests = collection(db, "request");
 //This checks the if user is logged in, if not then user will not be able to access this page
 auth.onAuthStateChanged(function (user) {
     if (user) {
-        console.log("Success!");
+        console.log("Sign in success!");
     } else {
         location.href = "stls.html";
     }
